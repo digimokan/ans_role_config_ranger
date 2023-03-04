@@ -1,0 +1,3 @@
+# user-specific main ranger config dir
+ranger_user_config_dir: "/home/{{ ranger_user_name }}/.config/ranger"
+
