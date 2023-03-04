@@ -1,0 +1,7 @@
+- name: "Install the 'ranger' application package"
+  ansible.builtin.package:
+    name: ranger
+    state: present
+  become: true
+  become_user: root
+

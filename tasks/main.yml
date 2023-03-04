@@ -1,0 +1,6 @@
+- name: "Install ranger application"
+  ansible.builtin.include_tasks: install/main.yml
+
+# - name: "Configure ranger application"
+#   ansible.builtin.include_tasks: configure/main.yml
+
