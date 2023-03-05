@@ -1,0 +1,126 @@
+# vim: set filetype=conf:
+# ANSIBLE-MANAGED CONFIGURATION FILE
+# Sourcing: ranger sources this after system rc.conf
+# Upstream Ref: https://github.com/ranger/ranger/blob/master/ranger/config/rc.conf
+
+################################################################################
+# WINDOW
+################################################################################
+
+# set a title for the window
+set update_title true
+
+# prefix the title with 'ranger' for tmux
+set update_tmux_title true
+
+# num dirs in pwd to show in title (0 is unlimited)
+set shorten_title 0
+
+################################################################################
+# TOP CWD LISTING
+################################################################################
+
+# abbreviate $HOME with ~ in top cwd listing
+set tilde_in_titlebar true
+
+################################################################################
+# COLUMNS
+################################################################################
+
+# viewmode: 3-pane 'miller' columns, or side-by-side vifm-style 'multipane'
+set viewmode miller
+
+# miller column relative widths
+set column_ratios 2,3,4
+
+# show vt cursor at current position
+set show_cursor true
+
+# draw borders around columns
+set draw_borders true
+
+# min num lines to keep between top/bottom border when scrolling
+set scroll_offset 3
+
+# clear all existing filters when leaving a directory
+set clear_filters_on_dir_change true
+
+################################################################################
+# FILE / DIR ENTRIES
+################################################################################
+
+# show hidden files by default
+set show_hidden true
+
+# use a unicode '...' character to end cut-off filenames
+set unicode_ellipsis true
+
+################################################################################
+# TABS
+################################################################################
+
+# display dir name in tabs
+set dirname_in_tabs true
+
+################################################################################
+# FILE PREVIEWS
+################################################################################
+
+# collapse (shrink) the last column if there is nothing to preview
+set collapse_preview false
+
+# show padding in last column if there is nothing to preview
+set padding_right false
+
+# preview image-files in term with method specified by 'preview_images_method'
+set preview_images true
+
+# image-file drawing method (see upstream rc.conf ref for available options)
+set preview_images_method kitty
+
+################################################################################
+# VCS
+################################################################################
+
+# be aware of version control systems and display info
+set vcs_aware true
+
+################################################################################
+# DELETE / TRASH
+################################################################################
+
+# confirm delete actions (always/never/multiple)
+set confirm_on_delete always
+
+################################################################################
+# STATUS BAR
+################################################################################
+
+# draw the status bar on top of
+set status_bar_on_top true
+
+################################################################################
+# MOUSE
+################################################################################
+
+# enable mouse support
+set mouse_enabled false
+
+################################################################################
+# DIR-LOCAL SETTINGS
+################################################################################
+
+# sort downloads by mtime
+setlocal path=~/download sort mtime
+
+################################################################################
+# KEYBINDINGS
+################################################################################
+
+# unmap special m's to allow remapping m
+# unmap m<any>
+# unmap m<bg>
+
+# use separate keybindings file to facilitate showing a "help" page
+# source ~/.config/ranger/keybindings.conf
+

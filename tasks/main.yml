@@ -4,3 +4,6 @@
 - name: "Create ranger config dir"
   ansible.builtin.include_tasks: create_config_dir/main.yml
 
+- name: "Set main configurations settings in 'rc.conf'"
+  ansible.builtin.include_tasks: config_rc_conf/main.yml
+
