@@ -4,3 +4,6 @@ show_term_cursor_at_current_pos: true
 # draw borders around the three 'miller' columns
 draw_borders_around_columns: true
 
+# when scrolling, keep this many rows between current pos and top/bottom of col
+scroll_offset_num_rows: 3
+

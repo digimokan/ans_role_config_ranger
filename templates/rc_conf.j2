@@ -36,8 +36,8 @@ set show_cursor {{ 'true' if show_term_cursor_at_current_pos else 'false' }}
 # draw borders around the three 'miller' columns
 set draw_borders {{ 'true' if draw_borders_around_columns else 'false' }}
 
-# min num lines to keep between top/bottom border when scrolling
-set scroll_offset 3
+# when scrolling, keep this many rows between current pos and top/bottom of col
+set scroll_offset {{ scroll_offset_num_rows }}
 
 # clear all existing filters when leaving a directory
 set clear_filters_on_dir_change true
