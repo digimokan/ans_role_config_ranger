@@ -1,0 +1,5 @@
+# program to use to preview images
+# --> set 'none' for no image previews
+# --> see upstream rc.conf source for available preview programs
+image_preview_program: 'none'
+

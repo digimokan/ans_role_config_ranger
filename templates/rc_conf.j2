@@ -70,10 +70,10 @@ set collapse_preview false
 set padding_right false
 
 # preview image-files in term with method specified by 'preview_images_method'
-set preview_images true
+set preview_images {{ 'true' if (image_preview_program != 'none') else 'false' }}
 
 # image-file drawing method (see upstream rc.conf ref for available options)
-set preview_images_method ueberzug
+set preview_images_method {{ image_preview_program if (image_preview_program != 'none') else 'urxvt' }}
 
 ################################################################################
 # VCS
