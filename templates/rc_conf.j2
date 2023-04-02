@@ -50,7 +50,7 @@ set clear_filters_on_dir_change {{ 'true' if clear_filters_when_leaving_dir else
 set show_hidden {{ 'true' if show_hidden_files_by_default else 'false' }}
 
 # use a unicode '...' character to end cut-off filenames
-set unicode_ellipsis true
+set unicode_ellipsis {{ 'true' if use_unicode_ellipsis_for_abbrev_filenames else 'false' }}
 
 ################################################################################
 # TABS

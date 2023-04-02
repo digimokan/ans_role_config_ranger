@@ -1,3 +1,6 @@
 # show hidden files by default
 show_hidden_files_by_default: true
 
+# use a unicode '...' character to end cut-off filenames
+use_unicode_ellipsis_for_abbrev_filenames: true
+
