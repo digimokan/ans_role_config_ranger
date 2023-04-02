@@ -8,10 +8,7 @@
 ################################################################################
 
 # set a title for the window
-set update_title true
-
-# prefix the title with 'ranger' for tmux
-set update_tmux_title true
+set update_title {{ 'true' if set_window_title else 'false' }}
 
 # num dirs in pwd to show in title (0 is unlimited)
 set shorten_title 0

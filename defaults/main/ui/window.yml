@@ -1,0 +1,3 @@
+# set a window title ("ranger")
+set_window_title: true
+
