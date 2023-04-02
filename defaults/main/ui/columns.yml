@@ -1,0 +1,3 @@
+# show the terminal (block/bar) cursor at current pos in current column
+show_term_cursor_at_current_pos: true
+

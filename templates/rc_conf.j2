@@ -31,7 +31,7 @@ set viewmode miller
 set column_ratios 2,3,4
 
 # show vt cursor at current position
-set show_cursor true
+set show_cursor {{ 'true' if show_term_cursor_at_current_pos else 'false' }}
 
 # draw borders around columns
 set draw_borders true
