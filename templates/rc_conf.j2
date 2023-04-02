@@ -17,8 +17,8 @@ set shorten_title {{ window_title_num_dirs }}
 # TOP CWD LISTING
 ################################################################################
 
-# abbreviate $HOME with ~ in top cwd listing
-set tilde_in_titlebar true
+# abbreviate $HOME with ~ in top status-bar listing
+set tilde_in_titlebar {{ 'true' if use_tilde_in_top_status_bar else 'false' }}
 
 ################################################################################
 # COLUMNS
