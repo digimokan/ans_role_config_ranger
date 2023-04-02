@@ -1,3 +1,6 @@
 # set a window title ("ranger")
 set_window_title: true
 
+# num dirs to show in window title (excess dirs omitted, and 0 is infinite)
+window_title_num_dirs: 0
+
