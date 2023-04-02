@@ -1,0 +1,3 @@
+# show hidden files by default
+show_hidden_files_by_default: true
+

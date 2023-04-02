@@ -47,7 +47,7 @@ set clear_filters_on_dir_change {{ 'true' if clear_filters_when_leaving_dir else
 ################################################################################
 
 # show hidden files by default
-set show_hidden true
+set show_hidden {{ 'true' if show_hidden_files_by_default else 'false' }}
 
 # use a unicode '...' character to end cut-off filenames
 set unicode_ellipsis true
