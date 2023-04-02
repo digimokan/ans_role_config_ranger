@@ -30,11 +30,11 @@ set viewmode miller
 # miller column relative widths
 set column_ratios 2,3,4
 
-# show vt cursor at current position
+# show the terminal (block/bar) cursor at current pos in current 'miller' column
 set show_cursor {{ 'true' if show_term_cursor_at_current_pos else 'false' }}
 
-# draw borders around columns
-set draw_borders true
+# draw borders around the three 'miller' columns
+set draw_borders {{ 'true' if draw_borders_around_columns else 'false' }}
 
 # min num lines to keep between top/bottom border when scrolling
 set scroll_offset 3
