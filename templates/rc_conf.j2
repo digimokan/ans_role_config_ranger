@@ -40,7 +40,7 @@ set draw_borders {{ 'true' if draw_borders_around_columns else 'false' }}
 set scroll_offset {{ scroll_offset_num_rows }}
 
 # clear all existing filters when leaving a directory
-set clear_filters_on_dir_change true
+set clear_filters_on_dir_change {{ 'true' if clear_filters_when_leaving_dir else 'false' }}
 
 ################################################################################
 # FILE / DIR ENTRIES

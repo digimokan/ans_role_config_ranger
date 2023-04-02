@@ -7,3 +7,6 @@ draw_borders_around_columns: true
 # when scrolling, keep this many rows between current pos and top/bottom of col
 scroll_offset_num_rows: 3
 
+# clear all existing filters when leaving a directory
+clear_filters_when_leaving_dir: true
+
