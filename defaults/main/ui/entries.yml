@@ -4,3 +4,22 @@ show_hidden_files_by_default: true
 # use a unicode '...' character to end cut-off filenames
 use_unicode_ellipsis_for_abbrev_filenames: true
 
+# show/hide hidden files in current directory
+keymap_show_hidden_files_in_current_dir: ']'
+keymap_hide_hidden_files_in_current_dir: '['
+
+# show file-size/num-entries-in-dir for entry info
+keymap_show_entry_size_count: 'mf'
+
+# show mtime for entry info
+keymap_show_entry_mtime: 'mm'
+
+# show permissions for entry info
+keymap_show_entry_permissions: 'mp'
+
+# show recursive size listing instead of num-entries, for a dir entry
+keymap_show_dir_entry_recursive_size: 'mc'
+
+# show pop-up with listing of entries in ascending size order
+keymap_popup_entries_by_size: 'ms'
+

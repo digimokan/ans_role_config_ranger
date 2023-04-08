@@ -297,14 +297,13 @@ map {{ keymap_shell_cmd }} console shell -p%space
 # KEYMAPS: FILE / DIR INFO
 ################################################################################
 
-map [       setlocal path=%d show_hidden false
-map ]       setlocal path=%d show_hidden true
-map mf      linemode filename
-map mm      linemode mtime
-map mp      linemode permissions
-map mc      get_cumulative_size
-map ms      shell -p du --max-depth=1 -h --apparent-size | sort -rh
-map m.      chain set collapse_preview!; set preview_files!
+map {{ keymap_show_hidden_files_in_current_dir }} setlocal path=%d show_hidden true
+map {{ keymap_hide_hidden_files_in_current_dir }} setlocal path=%d show_hidden false
+map {{ keymap_show_entry_size_count }} linemode filename
+map {{ keymap_show_entry_mtime }} linemode mtime
+map {{ keymap_show_entry_permissions }} linemode permissions
+map {{ keymap_show_dir_entry_recursive_size }} get_cumulative_size
+map {{ keymap_popup_entries_by_size }} shell -p du -hA -d 1 | sort -rh
 
 ################################################################################
 # KEYMAPS: SEARCH
