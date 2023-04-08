@@ -1,0 +1,21 @@
+# keymaps for go up/down in dirs, and select next/prev entry
+keymap_parent_dir: 'h'
+keymap_enter_dir: 'l'
+keymap_next_entry: 'j'
+keymap_prev_entry: 'k'
+
+# keymaps for go to next/prev page of entries
+keymap_next_page_of_entries: '<pagedown>'
+keymap_prev_page_of_entries: '<pageup>'
+
+# keymaps for go to first/last entry
+keymap_first_entry: 'gg'
+keymap_last_entry: 'G'
+
+# keymaps for go to next/prev location in navigation history
+keymap_next_loc_in_history: '.'
+keymap_prev_loc_in_history: ','
+
+# keymap for go-to/open fuzzy-searched entry
+keymap_go_to_fuzzy_searched_entry: 'f'
+

@@ -266,17 +266,17 @@ map {{ keymap_exit_ranger }} quit!
 # KEYMAPS: NAVIGATION
 ################################################################################
 
-map k       move up=1
-map j       move down=1
-map h       move left=1
-map l       move right=1
-map <pageup>    move up=1     pages=True
-map <pagedown>  move down=1   pages=True
-map gg      move to=0
-map G       move to=-1
-map ,       history_go -1
-map .       history_go 1
-map f       console scout -ftsea%space
+map {{ keymap_parent_dir }} move left=1
+map {{ keymap_enter_dir }} move right=1
+map {{ keymap_next_entry }} move down=1
+map {{ keymap_prev_entry }} move up=1
+map {{ keymap_next_page_of_entries }} move down=1 pages=True
+map {{ keymap_prev_page_of_entries }} move up=1 pages=True
+map {{ keymap_first_entry }} move to=0
+map {{ keymap_last_entry }} move to=-1
+map {{ keymap_next_loc_in_history }} history_go 1
+map {{ keymap_prev_loc_in_history }} history_go -1
+map {{ keymap_go_to_fuzzy_searched_entry }} console scout -ftsea%space
 
 ################################################################################
 # KEYMAPS: JUMPS
