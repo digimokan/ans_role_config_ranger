@@ -101,7 +101,7 @@ set mouse_enabled {{ 'true' if enable_mouse_support else 'false' }}
 ################################################################################
 
 # sort downloads by mtime
-setlocal path=~/download sort mtime
+setlocal path='{{ user_download_dir }}' sort {{ 'mtime' if sort_download_dir_entries_by_mtime else 'natural' }}
 
 ################################################################################
 # KEYBINDINGS

@@ -1,0 +1,6 @@
+# path to user's "downloads" directory
+user_download_dir: "/home/{{ ranger_user_name }}/Downloads"
+
+# sort entries in the downloads dir by mtime (if false, sort lexicographically)
+sort_download_dir_entries_by_mtime: true
+
