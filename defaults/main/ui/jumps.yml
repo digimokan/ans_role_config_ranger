@@ -1,0 +1,15 @@
+# keymaps_go_to_dir:
+keymaps_go_to_dir: []
+  - { keys: 'g/', dir: "/" }
+  - { keys: 'gn', dir: "/mnt" }
+  - { keys: 'gm', dir: "/media" }
+  - { keys: 'g,', dir: "/home/{{ ranger_user_name }}" }
+  - { keys: 'g.', dir: "/home/{{ ranger_user_name }}/Documents" }
+  - { keys: 'g-', dir: "/home/{{ ranger_user_name }}/Desktop" }
+  - { keys: 'gw', dir: "/home/{{ ranger_user_name }}/Downloads" }
+  - { keys: 'gu', dir: "/home/{{ ranger_user_name }}/Music" }
+  - { keys: 'gi', dir: "/home/{{ ranger_user_name }}/Pictures" }
+  - { keys: 'gv', dir: "/home/{{ ranger_user_name }}/Videos" }
+  - { keys: 'gb', dir: "/home/{{ ranger_user_name }}/Trash" }
+  - { keys: 'g<space>', dir: "/home/{{ ranger_user_name }}/Devel" }
+

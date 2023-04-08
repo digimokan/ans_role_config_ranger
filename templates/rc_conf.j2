@@ -282,25 +282,9 @@ map {{ keymap_go_to_fuzzy_searched_entry }} console scout -ftsea%space
 # KEYMAPS: JUMPS
 ################################################################################
 
-map g/      cd /
-map gn      cd /mnt
-map gm      cd /media
-map g,      cd ~
-map g.      cd ~/Documents
-map g-      cd ~/Desktop
-map g<space> cd ~/Devel
-map gw      cd ~/Downloads
-map gu      cd ~/Music
-map gi      cd ~/Pictures
-map gv      cd ~/Videos
-map gb      cd ~/Trash
-map ga      cd ~/Documents/Archive
-map gc      cd ~/Documents/Computer
-map ge      cd ~/Documents/Education
-map gy      cd ~/Documents/Employ
-map gh      cd ~/Documents/Hobbies
-map gl      cd ~/Documents/Local
-map gs      cd ~/Documents/Sync
+{% for keymap in keymaps_go_to_dir %}
+{{ 'map ' }}{{ keymap.keys }}{{ ' cd "' }}{{ keymap.dir }}{{ '"' }}
+{% endfor %}
 
 ################################################################################
 # KEYMAPS: CONSOLE
