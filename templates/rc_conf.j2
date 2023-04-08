@@ -53,13 +53,6 @@ set show_hidden {{ 'true' if show_hidden_files_by_default else 'false' }}
 set unicode_ellipsis {{ 'true' if use_unicode_ellipsis_for_abbrev_filenames else 'false' }}
 
 ################################################################################
-# TABS
-################################################################################
-
-# display dir name in tabs
-set dirname_in_tabs true
-
-################################################################################
 # FILE PREVIEWS
 ################################################################################
 
@@ -79,8 +72,8 @@ set preview_images_method {{ image_preview_program if (image_preview_program != 
 # VCS
 ################################################################################
 
-# be aware of version control systems and display info
-set vcs_aware true
+# show version control system info in status bar and in entries
+set vcs_aware {{ 'true' if show_vcs_info else 'false' }}
 
 ################################################################################
 # DELETE / TRASH

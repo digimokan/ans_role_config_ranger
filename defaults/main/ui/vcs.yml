@@ -1,0 +1,2 @@
+# show version control system info in status bar and in entries
+show_vcs_info: true
