@@ -1,0 +1,3 @@
+# keymap for exiting ranger
+keymap_exit_ranger: 'q'
+

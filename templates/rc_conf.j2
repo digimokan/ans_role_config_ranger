@@ -290,8 +290,8 @@ map {{ keymap_go_to_fuzzy_searched_entry }} console scout -ftsea%space
 # KEYMAPS: CONSOLE
 ################################################################################
 
-map a       console -p6 shell  %%s
-map <end>   console shell -p%space
+map {{ keymap_shell_cmd_on_current_entry }} console -p6 shell %%s
+map {{ keymap_shell_cmd }} console shell -p%space
 
 ################################################################################
 # KEYMAPS: FILE / DIR INFO

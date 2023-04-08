@@ -4,6 +4,9 @@ keymap_enter_console_cli_mode: ';'
 # keymap for exiting console CLI mode
 keymap_exit_console_cli_mode: '<esc>'
 
-# keymap for exiting ranger
-keymap_exit_ranger: 'q'
+# call a shell cmd using the current entry as the arg
+keymap_shell_cmd_on_current_entry: 'w'
+
+# call a shell cmd
+keymap_shell_cmd: 'a'
 
