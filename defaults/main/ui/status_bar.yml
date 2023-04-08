@@ -1,3 +1,6 @@
+# draw the status bar on top
+draw_status_bar_on_top: true
+
 # in top status-bar, abbreviate /home/user2 as ~
 use_tilde_in_top_status_bar: false
 

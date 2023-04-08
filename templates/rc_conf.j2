@@ -86,8 +86,8 @@ set confirm_on_delete {{ confirm_file_or_dir_delete }}
 # STATUS BAR
 ################################################################################
 
-# draw the status bar on top of
-set status_bar_on_top true
+# draw the status bar on top
+set status_bar_on_top {{ 'true' if draw_status_bar_on_top else 'false' }}
 
 ################################################################################
 # MOUSE
