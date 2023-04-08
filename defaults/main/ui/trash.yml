@@ -1,0 +1,3 @@
+# confirm file or dir deletion ('always', 'never', or 'multiple')
+confirm_file_or_dir_delete: 'always'
+

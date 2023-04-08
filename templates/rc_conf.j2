@@ -79,8 +79,8 @@ set vcs_aware {{ 'true' if show_vcs_info else 'false' }}
 # DELETE / TRASH
 ################################################################################
 
-# confirm delete actions (always/never/multiple)
-set confirm_on_delete always
+# confirm file or dir deletion ('always', 'never', or 'multiple')
+set confirm_on_delete {{ confirm_file_or_dir_delete }}
 
 ################################################################################
 # STATUS BAR
