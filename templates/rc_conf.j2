@@ -100,19 +100,11 @@ set mouse_enabled {{ 'true' if enable_mouse_support else 'false' }}
 # DIR-LOCAL SETTINGS
 ################################################################################
 
-# sort downloads by mtime
+# sort entries in the downloads dir by mtime (if false, sort lexicographically)
 setlocal path='{{ user_download_dir }}' sort {{ 'mtime' if sort_download_dir_entries_by_mtime else 'natural' }}
 
 ################################################################################
-# KEYBINDINGS
-################################################################################
-
-# unmap special m's to allow remapping m
-# unmap m<any>
-# unmap m<bg>
-
-################################################################################
-# KEYBINDINGS: UNMAP ALL DEFAULTS
+# KEYMAPS: UNMAP ALL DEFAULTS
 ################################################################################
 
 unmap <F1>
@@ -263,7 +255,19 @@ unmap Y
 unmap Z
 
 ################################################################################
-# KEYBINDINGS: MODES
+# QUESTIONABLE...................
+################################################################################
+
+# unmap special m's to allow remapping m
+# unmap m<any>
+# unmap m<bg>
+
+
+
+
+
+################################################################################
+# KEYMAPS: MODES
 ################################################################################
 
 map q       quit!
@@ -271,7 +275,7 @@ map <esc>   change_mode normal
 map ;       console
 
 ################################################################################
-# KEYBINDINGS: NAVIGATION
+# KEYMAPS: NAVIGATION
 ################################################################################
 
 map k       move up=1
@@ -285,10 +289,9 @@ map G       move to=-1
 map ,       history_go -1
 map .       history_go 1
 map f       console scout -ftsea%space
-map F       console chain flat -1; filter
 
 ################################################################################
-# KEYBINDINGS: JUMPS
+# KEYMAPS: JUMPS
 ################################################################################
 
 map g/      cd /
@@ -312,14 +315,14 @@ map gl      cd ~/Documents/Local
 map gs      cd ~/Documents/Sync
 
 ################################################################################
-# KEYBINDINGS: CONSOLE
+# KEYMAPS: CONSOLE
 ################################################################################
 
 map a       console -p6 shell  %%s
 map <end>   console shell -p%space
 
 ################################################################################
-# KEYBINDINGS: FILE / DIR INFO
+# KEYMAPS: FILE / DIR INFO
 ################################################################################
 
 map [       setlocal path=%d show_hidden false
@@ -332,7 +335,7 @@ map ms      shell -p du --max-depth=1 -h --apparent-size | sort -rh
 map m.      chain set collapse_preview!; set preview_files!
 
 ################################################################################
-# KEYBINDINGS: SEARCH
+# KEYMAPS: SEARCH
 ################################################################################
 
 map /       console search%space
@@ -345,7 +348,7 @@ map n       search_next
 map N       search_next forward=False
 
 ################################################################################
-# KEYBINDINGS: SORT
+# KEYMAPS: SORT
 ################################################################################
 
 map or      set sort_reverse!
@@ -356,7 +359,7 @@ map ot      chain set sort=type;      set sort_reverse=False
 map oe      chain set sort=extension; set sort_reverse=False
 
 ################################################################################
-# KEYBINDINGS: SELECTION
+# KEYMAPS: SELECTION
 ################################################################################
 
 map t       mark_files toggle=True
@@ -364,13 +367,13 @@ map v       toggle_visual_mode
 map V       mark_files all=True toggle=True
 
 ################################################################################
-# KEYBINDINGS: LAUNCH
+# KEYMAPS: LAUNCH
 ################################################################################
 
 # to-do!!
 
 ################################################################################
-# KEYBINDINGS: MODIFY
+# KEYMAPS: MODIFY
 ################################################################################
 
 map cw eval fm.execute_console("bulkrename") if fm.thisdir.marked_items else fm.open_console("rename ")
@@ -385,7 +388,7 @@ map <delete> delete
 map =       console -p12 shell chmod   %%s
 
 ################################################################################
-# KEYBINDINGS: COPY AND PASTE
+# KEYMAPS: COPY AND PASTE
 ################################################################################
 
 map y       copy mode=toggle
