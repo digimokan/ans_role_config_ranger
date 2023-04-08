@@ -1,5 +1,5 @@
 # keymaps_go_to_dir:
-keymaps_go_to_dir: []
+keymaps_go_to_dir:
   - { keys: 'g/', dir: "/" }
   - { keys: 'gn', dir: "/mnt" }
   - { keys: 'gm', dir: "/media" }
