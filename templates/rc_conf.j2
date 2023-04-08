@@ -93,8 +93,8 @@ set status_bar_on_top {{ 'true' if draw_status_bar_on_top else 'false' }}
 # MOUSE
 ################################################################################
 
-# enable mouse support
-set mouse_enabled false
+# enable mouse support in ranger
+set mouse_enabled {{ 'true' if enable_mouse_support else 'false' }}
 
 ################################################################################
 # DIR-LOCAL SETTINGS
