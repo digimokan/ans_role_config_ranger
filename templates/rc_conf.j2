@@ -255,24 +255,12 @@ unmap Y
 unmap Z
 
 ################################################################################
-# QUESTIONABLE...................
-################################################################################
-
-# unmap special m's to allow remapping m
-# unmap m<any>
-# unmap m<bg>
-
-
-
-
-
-################################################################################
 # KEYMAPS: MODES
 ################################################################################
 
-map q       quit!
-map <esc>   change_mode normal
-map ;       console
+map {{ keymap_enter_console_cli_mode }} console
+map {{ keymap_exit_console_cli_mode }} change_mode normal
+map {{ keymap_exit_ranger }} quit!
 
 ################################################################################
 # KEYMAPS: NAVIGATION

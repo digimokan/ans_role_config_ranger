@@ -1,0 +1,9 @@
+# keymap for switching to console CLI mode
+keymap_enter_console_cli_mode: ';'
+
+# keymap for exiting console CLI mode
+keymap_exit_console_cli_mode: '<esc>'
+
+# keymap for exiting ranger
+keymap_exit_ranger: 'q'
+
