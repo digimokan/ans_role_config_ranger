@@ -111,6 +111,285 @@ setlocal path='{{ user_download_dir }}' sort {{ 'mtime' if sort_download_dir_ent
 # unmap m<any>
 # unmap m<bg>
 
-# use separate keybindings file to facilitate showing a "help" page
-# source ~/.config/ranger/keybindings.conf
+################################################################################
+# KEYBINDINGS: UNMAP ALL DEFAULTS
+################################################################################
+
+unmap <F1>
+unmap <F3>
+unmap <F4>
+unmap <F5>
+unmap <F6>
+unmap <F7>
+unmap <F8>
+unmap <F9>
+unmap <F10>
+unmap <S-tab>
+unmap <C-a>
+unmap <C-b>
+unmap <C-c>
+unmap <C-d>
+unmap <C-e>
+unmap <C-f>
+unmap <C-g>
+unmap <C-h>
+unmap <C-i>
+unmap <C-j>
+unmap <C-k>
+unmap <C-l>
+unmap <C-m>
+unmap <C-n>
+unmap <C-o>
+unmap <C-p>
+unmap <C-q>
+unmap <C-r>
+unmap <C-s>
+unmap <C-t>
+unmap <C-u>
+unmap <C-v>
+unmap <C-w>
+unmap <C-x>
+unmap <C-y>
+unmap <C-z>
+unmap <A-right>
+unmap <A-left>
+unmap <A-1>
+unmap <A-2>
+unmap <A-3>
+unmap <A-4>
+unmap <A-5>
+unmap <A-6>
+unmap <A-7>
+unmap <A-8>
+unmap <A-9>
+unmap <up>
+unmap <down>
+unmap <left>
+unmap <right>
+unmap <home>
+unmap <space>
+unmap <enter>
+unmap <end>
+unmap <backspace>
+unmap <delete>
+unmap <insert>
+unmap <esc>
+unmap <tab>
+unmap <pageup>
+unmap <pagedown>
+unmap {
+unmap }
+unmap [
+unmap ]
+unmap <
+unmap >
+unmap :
+unmap ;
+unmap |
+unmap \
+unmap ,
+unmap .
+unmap "
+unmap '
+unmap ?
+unmap /
+unmap `
+unmap ~
+unmap +
+unmap =
+unmap !
+unmap @
+unmap #
+unmap $
+unmap %
+unmap ^
+unmap &
+unmap *
+unmap (
+unmap )
+unmap -
+unmap _
+unmap a
+unmap b
+unmap c
+unmap d
+unmap e
+unmap f
+unmap g
+unmap h
+unmap i
+unmap j
+unmap k
+unmap l
+unmap m
+unmap n
+unmap o
+unmap p
+unmap q
+unmap r
+unmap s
+unmap t
+unmap u
+unmap v
+unmap w
+unmap x
+unmap y
+unmap z
+unmap A
+unmap B
+unmap C
+unmap D
+unmap E
+unmap F
+unmap G
+unmap H
+unmap I
+unmap J
+unmap K
+unmap L
+unmap M
+unmap N
+unmap O
+unmap P
+unmap Q
+unmap R
+unmap S
+unmap T
+unmap U
+unmap V
+unmap W
+unmap X
+unmap Y
+unmap Z
+
+################################################################################
+# KEYBINDINGS: MODES
+################################################################################
+
+map q       quit!
+map <esc>   change_mode normal
+map ;       console
+
+################################################################################
+# KEYBINDINGS: NAVIGATION
+################################################################################
+
+map k       move up=1
+map j       move down=1
+map h       move left=1
+map l       move right=1
+map <pageup>    move up=1     pages=True
+map <pagedown>  move down=1   pages=True
+map gg      move to=0
+map G       move to=-1
+map ,       history_go -1
+map .       history_go 1
+map f       console scout -ftsea%space
+map F       console chain flat -1; filter
+
+################################################################################
+# KEYBINDINGS: JUMPS
+################################################################################
+
+map g/      cd /
+map gn      cd /mnt
+map gm      cd /media
+map g,      cd ~
+map g.      cd ~/Documents
+map g-      cd ~/Desktop
+map g<space> cd ~/Devel
+map gw      cd ~/Downloads
+map gu      cd ~/Music
+map gi      cd ~/Pictures
+map gv      cd ~/Videos
+map gb      cd ~/Trash
+map ga      cd ~/Documents/Archive
+map gc      cd ~/Documents/Computer
+map ge      cd ~/Documents/Education
+map gy      cd ~/Documents/Employ
+map gh      cd ~/Documents/Hobbies
+map gl      cd ~/Documents/Local
+map gs      cd ~/Documents/Sync
+
+################################################################################
+# KEYBINDINGS: CONSOLE
+################################################################################
+
+map a       console -p6 shell  %%s
+map <end>   console shell -p%space
+
+################################################################################
+# KEYBINDINGS: FILE / DIR INFO
+################################################################################
+
+map [       setlocal path=%d show_hidden false
+map ]       setlocal path=%d show_hidden true
+map mf      linemode filename
+map mm      linemode mtime
+map mp      linemode permissions
+map mc      get_cumulative_size
+map ms      shell -p du --max-depth=1 -h --apparent-size | sort -rh
+map m.      chain set collapse_preview!; set preview_files!
+
+################################################################################
+# KEYBINDINGS: SEARCH
+################################################################################
+
+map /       console search%space
+map sl      console filter%space
+map ss      search_next order=size
+map sm      search_next order=mtime
+map sf      fzf_select
+map sd      fzf_select_dir
+map n       search_next
+map N       search_next forward=False
+
+################################################################################
+# KEYBINDINGS: SORT
+################################################################################
+
+map or      set sort_reverse!
+map on      chain set sort=natural;   set sort_reverse=False
+map os      chain set sort=size;      set sort_reverse=False
+map om      chain set sort=mtime;     set sort_reverse=False
+map ot      chain set sort=type;      set sort_reverse=False
+map oe      chain set sort=extension; set sort_reverse=False
+
+################################################################################
+# KEYBINDINGS: SELECTION
+################################################################################
+
+map t       mark_files toggle=True
+map v       toggle_visual_mode
+map V       mark_files all=True toggle=True
+
+################################################################################
+# KEYBINDINGS: LAUNCH
+################################################################################
+
+# to-do!!
+
+################################################################################
+# KEYBINDINGS: MODIFY
+################################################################################
+
+map cw eval fm.execute_console("bulkrename") if fm.thisdir.marked_items else fm.open_console("rename ")
+map cc      rename_append -r
+map ce      rename_append
+map ca      eval fm.open_console('rename ' + fm.thisfile.relative_path.replace("%", "%%"))
+map ci      eval fm.open_console('rename ' + fm.thisfile.relative_path.replace("%", "%%"), position=7)
+map ct      console touch%space
+map ck      console mkdir%space
+map b       shell mv --backup=numbered %s ${HOME}/trash/
+map <delete> delete
+map =       console -p12 shell chmod   %%s
+
+################################################################################
+# KEYBINDINGS: COPY AND PASTE
+################################################################################
+
+map y       copy mode=toggle
+map d       cut mode=toggle
+map u       chain uncut; mark_files all=True val=False
+map p       chain paste; uncut; mark_files all=True val=False
 
