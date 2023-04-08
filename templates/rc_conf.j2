@@ -283,7 +283,7 @@ map {{ keymap_go_to_fuzzy_searched_entry }} console scout -ftsea%space
 ################################################################################
 
 {% for keymap in keymaps_go_to_dir %}
-{{ 'map ' }}{{ keymap.keys }}{{ ' cd "' }}{{ keymap.dir }}{{ '"' }}
+{{ 'map ' }}{{ keymap.key_presses }}{{ ' cd "' }}{{ keymap.dir }}{{ '"' }}
 {% endfor %}
 
 ################################################################################
