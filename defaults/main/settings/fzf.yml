@@ -1,0 +1,3 @@
+# cmd to run fzf on the command line
+ranger_fzf_cmd: "true"
+

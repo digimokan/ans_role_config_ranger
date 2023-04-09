@@ -1,0 +1,12 @@
+- name: "Add custom python functions for user '{{ ranger_user_name }}' in '{{ commands_py_path }}'"
+  ansible.builtin.template:
+    dest: "{{ commands_py_path }}"
+    src: "commands.j2"
+    owner: "{{ ranger_user_name }}"
+    mode: '644'
+    force: yes
+  vars:
+    commands_py_path: "{{ ranger_user_config_dir }}/commands.py"
+  become: true
+  become_user: root
+
