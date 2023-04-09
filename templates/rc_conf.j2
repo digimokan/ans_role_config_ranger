@@ -294,50 +294,36 @@ map {{ keymap_shell_cmd_on_current_entry }} console -p6 shell %%s
 map {{ keymap_shell_cmd }} console shell -p%space
 
 ################################################################################
-# KEYMAPS: FILE / DIR INFO
+# KEYMAPS: ENTRY HIDDEN FILES
 ################################################################################
 
 map {{ keymap_show_hidden_files_in_current_dir }} setlocal path=%d show_hidden true
 map {{ keymap_hide_hidden_files_in_current_dir }} setlocal path=%d show_hidden false
-map {{ keymap_show_entry_size_count }} linemode filename
-map {{ keymap_show_entry_mtime }} linemode mtime
-map {{ keymap_show_entry_permissions }} linemode permissions
-map {{ keymap_show_dir_entry_recursive_size }} get_cumulative_size
-map {{ keymap_popup_entries_by_size }} shell -p du -hA -d 1 | sort -rh
 
 ################################################################################
-# KEYMAPS: SEARCH
+# KEYMAPS: ENTRY LISTINGS
 ################################################################################
 
-map {{ keymap_search_entries }} console search%space
-map {{ keymap_next_search_hit }} search_next
-map {{ keymap_prev_search_hit }} search_next forward=False
-map {{ keymap_recurse_fuzzy_search }} fzf_select
+map {{ keymap_list_entries_with_sizes }} linemode filename
+map {{ keymap_list_entries_with_mtimes }} linemode mtime
+map {{ keymap_list_entries_with_permissions }} linemode permissions
 
 ################################################################################
-# KEYMAPS: RE-ORDER ENTRIES
+# KEYMAPS: ENTRY ORDERING
 ################################################################################
 
-map or      set sort_reverse!
-map on      chain set sort=natural;   set sort_reverse=False
-map os      chain set sort=size;      set sort_reverse=False
-map om      chain set sort=mtime;     set sort_reverse=False
-map ot      chain set sort=type;      set sort_reverse=False
-map oe      chain set sort=extension; set sort_reverse=False
+map {{ keymap_order_entries_by_names }} chain set sort=natural; set sort_reverse=False
+map {{ keymap_order_entries_by_sizes }} chain set sort=size; set sort_reverse=False
+map {{ keymap_order_entries_by_mtimes }} chain set sort=mtime; set sort_reverse=False
+map {{ keymap_order_entries_by_file_types }} chain set sort=type; set sort_reverse=False
+map {{ keymap_order_entries_by_extensions }} chain set sort=extension; set sort_reverse=False
 
 ################################################################################
-# KEYMAPS: SELECTION
+# KEYMAPS: ENTRY QUERIES
 ################################################################################
 
-map t       mark_files toggle=True
-map v       toggle_visual_mode
-map V       mark_files all=True toggle=True
-
-################################################################################
-# KEYMAPS: LAUNCH
-################################################################################
-
-# to-do!!
+map {{ keymap_query_dir_entry_recursive_size }} get_cumulative_size
+map {{ keymap_query_popup_entries_by_size }} shell -p du -hA -d 1 | sort -rh
 
 ################################################################################
 # KEYMAPS: MODIFY
@@ -355,6 +341,23 @@ map <delete> delete
 map =       console -p12 shell chmod   %%s
 
 ################################################################################
+# KEYMAPS: SELECTION
+################################################################################
+
+map t       mark_files toggle=True
+map v       toggle_visual_mode
+map V       mark_files all=True toggle=True
+
+################################################################################
+# KEYMAPS: SEARCH
+################################################################################
+
+map {{ keymap_search_entries }} console search%space
+map {{ keymap_next_search_hit }} search_next
+map {{ keymap_prev_search_hit }} search_next forward=False
+map {{ keymap_recurse_fuzzy_search }} fzf_select
+
+################################################################################
 # KEYMAPS: COPY AND PASTE
 ################################################################################
 
@@ -362,4 +365,10 @@ map y       copy mode=toggle
 map d       cut mode=toggle
 map u       chain uncut; mark_files all=True val=False
 map p       chain paste; uncut; mark_files all=True val=False
+
+################################################################################
+# KEYMAPS: LAUNCH
+################################################################################
+
+# to-do!!
 

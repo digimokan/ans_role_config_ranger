@@ -8,18 +8,21 @@ use_unicode_ellipsis_for_abbrev_filenames: true
 keymap_show_hidden_files_in_current_dir: ']'
 keymap_hide_hidden_files_in_current_dir: '['
 
-# show file-size/num-entries-in-dir for entry info
-keymap_show_entry_size_count: 'mf'
+# list all entries with certain info printed for each
+keymap_list_entries_with_sizes: 'ms'
+keymap_list_entries_with_mtimes: 'mm'
+keymap_list_entries_with_permissions: 'mp'
 
-# show mtime for entry info
-keymap_show_entry_mtime: 'mm'
-
-# show permissions for entry info
-keymap_show_entry_permissions: 'mp'
+# order all entries by a certain field
+keymap_order_entries_by_names: 'on'
+keymap_order_entries_by_sizes: 'os'
+keymap_order_entries_by_mtimes: 'om'
+keymap_order_entries_by_file_types: 'ot'
+keymap_order_entries_by_extensions: 'oe'
 
 # show recursive size listing instead of num-entries, for a dir entry
-keymap_show_dir_entry_recursive_size: 'mc'
+keymap_query_dir_entry_recursive_size: '-'
 
 # show pop-up with listing of entries in ascending size order
-keymap_popup_entries_by_size: 'ms'
+keymap_query_popup_entries_by_size: 'z'
 
