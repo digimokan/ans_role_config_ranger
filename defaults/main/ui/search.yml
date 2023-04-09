@@ -1,0 +1,8 @@
+# search the displayed entries for a string of text, and traverse search hits
+keymap_search_entries: '/'
+keymap_next_search_hit: 'n'
+keymap_prev_search_hit: 'N'
+
+# pop-up recursive fuzzy file/dir search, and go to dir of the search hit
+keymap_recurse_fuzzy_search: 's'
+

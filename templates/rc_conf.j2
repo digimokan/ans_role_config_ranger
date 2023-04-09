@@ -309,14 +309,10 @@ map {{ keymap_popup_entries_by_size }} shell -p du -hA -d 1 | sort -rh
 # KEYMAPS: SEARCH
 ################################################################################
 
-map /       console search%space
-map sl      console filter%space
-map ss      search_next order=size
-map sm      search_next order=mtime
-map sf      fzf_select
-map sd      fzf_select_dir
-map n       search_next
-map N       search_next forward=False
+map {{ keymap_search_entries }} console search%space
+map {{ keymap_next_search_hit }} search_next
+map {{ keymap_prev_search_hit }} search_next forward=False
+map {{ keymap_recurse_fuzzy_search }} fzf_select
 
 ################################################################################
 # KEYMAPS: RE-ORDER ENTRIES

@@ -6,27 +6,6 @@
 import os
 from ranger.api.commands import *
 
-# class fzf_select(Command):
-#   """
-#   :fzf_select
-#   find a file or dir using fzf
-#   """
-#   def execute(self):
-#     import subprocess
-#     import os.path
-
-#     command="{{ ranger_fzf_cmd }} --exact --no-sort"
-
-#     fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
-#     stdout, stderr = fzf.communicate()
-#     if fzf.returncode == 0:
-#       fzf_file = os.path.abspath(stdout.decode('utf-8').rstrip('\n'))
-#       if os.path.isdir(fzf_file):
-#         self.fm.cd(fzf_file)
-#       else:
-#         self.fm.select_file(fzf_file)
-
-
 class fzf_select(Command):
   """
   :fzf_select
@@ -86,27 +65,4 @@ class fzf_select(Command):
         self.fm.cd(selected)
       else:
         self.fm.select_file(selected)
-
-
-
-
-# class fzf_select_dir(Command):
-#   """
-#   :fzf_select_dir
-#   find a dir using fzf
-#   """
-#   def execute(self):
-#     import subprocess
-#     import os.path
-
-#     command="rg --files --smart-case --hidden --no-ignore --glob \"!.git/*\" --null 2> /dev/null | xargs -0 dirname | sort -u | fzf"
-
-#     fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
-#     stdout, stderr = fzf.communicate()
-#     if fzf.returncode == 0:
-#       fzf_file = os.path.abspath(stdout.decode('utf-8').rstrip('\n'))
-#       if os.path.isdir(fzf_file):
-#         self.fm.cd(fzf_file)
-#       else:
-#         self.fm.select_file(fzf_file)
 
