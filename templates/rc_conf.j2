@@ -326,22 +326,32 @@ map {{ keymap_query_dir_entry_recursive_size }} get_cumulative_size
 map {{ keymap_query_popup_entries_by_size }} shell -p du -hA -d 1 | sort -rh
 
 ################################################################################
-# KEYMAPS: MODIFY
+# KEYMAPS: ENTRY CREATE / RENAME
 ################################################################################
 
-map cw eval fm.execute_console("bulkrename") if fm.thisdir.marked_items else fm.open_console("rename ")
-map cc      rename_append -r
-map ce      rename_append
-map ca      eval fm.open_console('rename ' + fm.thisfile.relative_path.replace("%", "%%"))
-map ci      eval fm.open_console('rename ' + fm.thisfile.relative_path.replace("%", "%%"), position=7)
-map ct      console touch%space
-map ck      console mkdir%space
-map b       shell mv --backup=numbered %s ${HOME}/trash/
+map {{ keymap_rename_entry_name_and_ext }} eval fm.execute_console("bulkrename") if fm.thisdir.marked_items else fm.open_console("rename ")
+map {{ keymap_rename_entry_name_only }} rename_append -r
+map {{ keymap_rename_entry_append_at_end_of_name }} rename_append
+map {{ keymap_rename_entry_append_at_end_of_ext }} eval fm.open_console('rename ' + fm.thisfile.relative_path.replace("%", "%%"))
+map {{ keymap_rename_entry_append_at_start_of_name }} eval fm.open_console('rename ' + fm.thisfile.relative_path.replace("%", "%%"), position=7)
+map {{ keymap_touch_new_entry }} console touch%space
+map {{ keymap_create_new_dir }} console mkdir%space
+
+################################################################################
+# KEYMAPS: ENTRY DELETE / TRASH
+################################################################################
+
 map <delete> delete
+map b       shell mv --backup=numbered %s ${HOME}/trash/
+
+################################################################################
+# KEYMAPS: ENTRY CHMOD
+################################################################################
+
 map =       console -p12 shell chmod   %%s
 
 ################################################################################
-# KEYMAPS: SELECTION
+# KEYMAPS: ENTRY SELECTION
 ################################################################################
 
 map t       mark_files toggle=True
