@@ -10,6 +10,6 @@ keymaps_go_to_dir:
   - { key_presses: 'gu', dir: "/home/{{ ranger_user_name }}/Music" }
   - { key_presses: 'gi', dir: "/home/{{ ranger_user_name }}/Pictures" }
   - { key_presses: 'gv', dir: "/home/{{ ranger_user_name }}/Videos" }
-  - { key_presses: 'gb', dir: "/home/{{ ranger_user_name }}/Trash" }
+  - { key_presses: 'gb', dir: "{{ ranger_trash_dir }}" }
   - { key_presses: 'g<space>', dir: "/home/{{ ranger_user_name }}/Devel" }
 
