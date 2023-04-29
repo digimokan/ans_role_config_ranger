@@ -342,7 +342,7 @@ map {{ keymap_create_new_dir }} console mkdir%space
 ################################################################################
 
 map <delete> delete
-map b       shell mv --backup=numbered %s ${HOME}/trash/
+map {{ keymap_move_file_or_dir_to_trash }} shell {{ ranger_gnu_coreutils_mv_cmd }} --backup=numbered "%s" "{{ ranger_trash_dir }}"
 
 ################################################################################
 # KEYMAPS: ENTRY CHMOD
