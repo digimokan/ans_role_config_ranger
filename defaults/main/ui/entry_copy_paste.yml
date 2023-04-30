@@ -1,0 +1,12 @@
+# copy current entry or all currently-selected entries
+keymap_copy_sel_or_current_entry: 'y'
+
+# cut current entry or all currently-selected entries
+keymap_cut_sel_or_current_entry: 'd'
+
+# uncut / uncopy / un-select all entries
+keymap_unselect_and_uncopy_entries: 'u'
+
+# paste all cut or copied entries
+keymap_paste_entries: 'p'
+

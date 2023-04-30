@@ -371,10 +371,10 @@ map {{ keymap_recurse_fuzzy_search }} fzf_select
 # KEYMAPS: COPY AND PASTE
 ################################################################################
 
-map y       copy mode=toggle
-map d       cut mode=toggle
-map u       chain uncut; mark_files all=True val=False
-map p       chain paste; uncut; mark_files all=True val=False
+map {{ keymap_copy_sel_or_current_entry }} copy mode=toggle
+map {{ keymap_cut_sel_or_current_entry }} cut mode=toggle
+map {{ keymap_unselect_and_uncopy_entries }} chain uncut; mark_files all=True val=False
+map {{ keymap_paste_entries }} chain paste; uncut; mark_files all=True val=False
 
 ################################################################################
 # KEYMAPS: LAUNCH
