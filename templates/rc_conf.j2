@@ -354,9 +354,9 @@ map {{ keymap_chmod_entry }} console -p12 shell chmod   %%s
 # KEYMAPS: ENTRY SELECTION
 ################################################################################
 
-map t       mark_files toggle=True
-map v       toggle_visual_mode
-map V       mark_files all=True toggle=True
+map {{ keymap_toggle_select_entry }} mark_files toggle=True
+map {{ keymap_toggle_drag_select_mode }} toggle_visual_mode
+map {{ keymap_select_all_entries }} mark_files all=True toggle=True
 
 ################################################################################
 # KEYMAPS: SEARCH

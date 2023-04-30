@@ -1,0 +1,9 @@
+# toggle mark/select for currently-highlighted entry
+keymap_toggle_select_entry: 't'
+
+# toggle cumulative "drag-select" from currently-highlighted entry
+keymap_toggle_drag_select_mode: 'v'
+
+# highlight all entries in the pane
+keymap_select_all_entries: 'V'
+
