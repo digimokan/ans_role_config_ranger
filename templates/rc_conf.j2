@@ -348,7 +348,7 @@ map {{ keymap_move_file_or_dir_to_trash }} shell {{ ranger_gnu_coreutils_mv_cmd 
 # KEYMAPS: ENTRY CHMOD
 ################################################################################
 
-map =       console -p12 shell chmod   %%s
+map {{ keymap_chmod_entry }} console -p12 shell chmod   %%s
 
 ################################################################################
 # KEYMAPS: ENTRY SELECTION
