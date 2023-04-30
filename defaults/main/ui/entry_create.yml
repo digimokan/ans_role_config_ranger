@@ -1,0 +1,6 @@
+# touch a new file
+keymap_touch_new_entry: 'ct'
+
+# create a new directory
+keymap_create_new_dir: 'ck'
+

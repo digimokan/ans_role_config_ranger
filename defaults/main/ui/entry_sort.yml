@@ -1,0 +1,12 @@
+# show hidden files by default, or manually show/hide hidden files
+show_hidden_files_by_default: true
+keymap_show_hidden_files_in_current_dir: ']'
+keymap_hide_hidden_files_in_current_dir: '['
+
+# order all entries by a certain field
+keymap_order_entries_by_names: 'on'
+keymap_order_entries_by_sizes: 'os'
+keymap_order_entries_by_mtimes: 'om'
+keymap_order_entries_by_file_types: 'ot'
+keymap_order_entries_by_extensions: 'oe'
+

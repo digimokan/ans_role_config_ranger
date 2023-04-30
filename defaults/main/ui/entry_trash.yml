@@ -1,12 +1,15 @@
 # confirm file or dir deletion ('always', 'never', or 'multiple')
 confirm_file_or_dir_delete: 'always'
 
+# delete a file or dir
+keymap_delete_file_or_dir: '<delete>'
+
 # path or cmd to invoke the GNU version of 'mv' (used to move files to trash)
 ranger_gnu_coreutils_mv_cmd: 'mv'
 
 # when ranger moves a file or dir to the trash, it will put it in this dir
 ranger_trash_dir: "/home/{{ ranger_user_name }}/.trash"
 
-# search the displayed entries for a string of text, and traverse search hits
+# move a file or dir to ranger_trash_dir
 keymap_move_file_or_dir_to_trash: 'b'
 

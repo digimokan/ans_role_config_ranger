@@ -1,0 +1,14 @@
+# use a unicode '...' character to end cut-off filenames
+use_unicode_ellipsis_for_abbrev_filenames: true
+
+# list all entries with certain info printed for each
+keymap_list_entries_with_sizes: 'ms'
+keymap_list_entries_with_mtimes: 'mm'
+keymap_list_entries_with_permissions: 'mp'
+
+# show recursive dir size listing instead of num-entries
+keymap_query_dir_entry_recursive_size: '-'
+
+# show pop-up with listing of entries in ascending size order
+keymap_query_popup_entries_by_size: 'z'
+
