@@ -1,6 +1,9 @@
 # use a unicode '...' character to end cut-off filenames
 use_unicode_ellipsis_for_abbrev_filenames: true
 
+# toggle open/close of the entry in a text-based pager view
+keymap_toggle_entry_pager_view: 'i'
+
 # list all entries with certain info printed for each
 keymap_list_entries_with_sizes: 'ms'
 keymap_list_entries_with_mtimes: 'mm'

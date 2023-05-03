@@ -287,11 +287,14 @@ map {{ keymap_go_to_fuzzy_searched_entry }} console scout -ftsea%space
 {% endfor %}
 
 ################################################################################
-# KEYMAPS: CONSOLE
+# KEYMAPS: LAUNCH
 ################################################################################
 
-map {{ keymap_shell_cmd_on_current_entry }} console -p6 shell %%s
-map {{ keymap_shell_cmd }} console shell -p%space
+map {{ keymap_toggle_entry_pager_view }} display_file
+# map e       shell -f termite --directory=%d --exec="sh -c '. ${HOME}/dotfiles/tmux/scripts/ranger_edit_file_in_tmux.sh "%p"'"
+# map O       chain draw_possible_programs; console open_with%space
+# map <space> eval fm.execute_console("shell tmux new-window -c %d")
+# map r       shell -f termite --directory=%d --exec="sh -c '. ${HOME}/dotfiles/tmux/scripts/ranger_start_term_in_tmux.sh'"
 
 ################################################################################
 # KEYMAPS: ENTRY HIDDEN FILES
@@ -377,8 +380,9 @@ map {{ keymap_unselect_and_uncopy_entries }} chain uncut; mark_files all=True va
 map {{ keymap_paste_entries }} chain paste; uncut; mark_files all=True val=False
 
 ################################################################################
-# KEYMAPS: LAUNCH
+# KEYMAPS: CONSOLE
 ################################################################################
 
-# to-do!!
+map {{ keymap_shell_cmd_on_current_entry }} console -p6 shell %%s
+map {{ keymap_shell_cmd }} console shell -p%space
 
