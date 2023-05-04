@@ -1,6 +1,9 @@
 # cmd to run to start the terminal emulator
 start_term_emulator: "xterm"
 
+# cmd to run to start the terminal emulator
+open_new_term_emulator_tab: "xterm -t"
+
 # arg to pass to start_term_emulator to start in a specified directory
 term_arg_set_dir: "--cwd "
 
