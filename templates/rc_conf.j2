@@ -290,17 +290,19 @@ map {{ keymap_go_to_fuzzy_searched_entry }} console scout -ftsea%space
 # KEYMAPS: LAUNCH
 ################################################################################
 
-map {{ keymap_edit_text_file_in_new_window }} shell -f {{ start_term_emulator }} {{ term_arg_set_dir }}"%d" {{ term_arg_exec_cmd }}'{{ start_text_editor }}"%p"'
+# NOTE: ranger doesn't like quotes around %d, but it handles spaces-in-name ok
+map {{ keymap_edit_text_file_in_new_window }} shell -f {{ start_term_emulator }} {{ term_arg_set_dir }}%d {{ term_arg_exec_cmd }}'{{ start_text_editor }}"%p"'
 # map O       chain draw_possible_programs; console open_with%space
 # map <space> eval fm.execute_console("shell tmux new-window -c %d")
-map {{ keymap_open_dir_in_new_window }} shell -f {{ start_term_emulator }} {{ term_arg_set_dir }}"%d"
+map {{ keymap_open_dir_in_new_window }} shell -f {{ start_term_emulator }} {{ term_arg_set_dir }}%d
 
 ################################################################################
 # KEYMAPS: ENTRY HIDDEN FILES
 ################################################################################
 
-map {{ keymap_show_hidden_files_in_current_dir }} setlocal path="%d" show_hidden true
-map {{ keymap_hide_hidden_files_in_current_dir }} setlocal path="%d" show_hidden false
+# NOTE: ranger doesn't like quotes around %d, but it handles name-with-spaces ok
+map {{ keymap_show_hidden_files_in_current_dir }} setlocal path=%d show_hidden true
+map {{ keymap_hide_hidden_files_in_current_dir }} setlocal path=%d show_hidden false
 
 ################################################################################
 # KEYMAPS: ENTRY LISTINGS
