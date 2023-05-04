@@ -10,3 +10,6 @@
 - name: "Set main configurations settings in 'rc.conf'"
   ansible.builtin.include_tasks: config_rc_conf/main.yml
 
+- name: "Set program-selection to open specific file types in 'rifle.conf'"
+  ansible.builtin.include_tasks: config_rifle_conf/main.yml
+

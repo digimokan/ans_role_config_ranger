@@ -1,0 +1,201 @@
+################################################################################
+# vim: set filetype=cfg:
+# ANSIBLE-MANAGED CONFIGURATION FILE
+# PURPOSE:  set app priority for opening specific file types
+# SOURCING: ranger sources this *instead of* system rifle.conf
+# REF: https://github.com/ranger/ranger/blob/master/ranger/config/rifle.conf
+################################################################################
+
+# Syntax:
+#   <condition1> , <condition2> , <condition...> = command
+#
+# 'command' can contain these terms:
+#   $1-$9           the nth selected file
+#   $@              all selected files
+#   ask             special keyword, makes rifle ask you what prog to run
+#
+# 'condition' can contain these terms
+#   flag <flags>    change how the program is run (see flags below)
+#   label <label>   label the cmd for open_with
+#   !               special prefix that negates condition
+#   match <regex>   regex matches $1
+#   ext <regex>     regex matches the extension of $1
+#   mime <regex>    regex matches the mime type of $1
+#   name <regex>    regex matches the basename of $1
+#   path <regex>    regex matches the absolute path of $1
+#   has <program>   program is installed on system (i.e. located in $PATH)
+#   env <variable>  env var "variable" is non-empty
+#   file            $1 is a file
+#   directory       $1 is a directory
+#   number <n>      change the number of this command to n
+#   terminal        stdin, stderr and stdout are connected to a terminal
+#   X               $DISPLAY is not empty (i.e. running in xorg)
+#
+# 'flags'
+#   f               fork program and make it run in the background
+#   r               execute the cmd with root permissions (using sudo)
+#   t               run program in a new vt (using $TERMCD or $TERM)
+
+################################################################################
+# HTML
+################################################################################
+
+# ext x?html?, has qutebrowser,    X, flag f = qutebrowser -- "$@"
+# ext x?html?, has firefox,        X, flag f = firefox -- "$@"
+# ext x?html?, has chromium,       X, flag f = chromium -- "$@"
+
+{% for prog in open_html_files_with %}
+ext x?html?, X, flag f = {{ prog }} -- "$@"
+{% endfor %}
+
+################################################################################
+# TEXT
+# --> must define as first action
+################################################################################
+
+# original config here:
+# mime ^text,  label editor = tmux new-window vim -- "$@"
+mime ^text,  label editor = ${VISUAL:-$EDITOR} -- "$@"
+mime ^text,  label pager  = "$PAGER" -- "$@"
+!mime ^text, label editor, ext xml|json|csv|tex|py|pl|rb|js|sh|php = $EDITOR -- "$@"
+!mime ^text, label pager,  ext xml|json|csv|tex|py|pl|rb|js|sh|php = "$PAGER" -- "$@"
+mime ^text,  label libreoffice, has libreoffice, X, flag f = libreoffice "$@"
+
+################################################################################
+# MISC
+################################################################################
+
+ext 1                         = man "$1"
+ext s[wmf]c, has zsnes, X     = zsnes "$1"
+ext s[wmf]c, has snes9x-gtk,X = snes9x-gtk "$1"
+ext nes, has fceux, X         = fceux "$1"
+ext exe                       = wine "$1"
+name ^[mM]akefile$            = make
+
+################################################################################
+# CODE
+################################################################################
+
+ext py  = python -- "$1"
+ext pl  = perl -- "$1"
+ext rb  = ruby -- "$1"
+ext js  = node -- "$1"
+ext sh  = sh -- "$1"
+ext php = php -- "$1"
+
+################################################################################
+# AUDIO WITHOUT X
+################################################################################
+
+mime ^audio|ogg$, terminal, has mpv      = mpv -- "$@"
+mime ^audio|ogg$, terminal, has mplayer2 = mplayer2 -- "$@"
+mime ^audio|ogg$, terminal, has mplayer  = mplayer -- "$@"
+ext midi?,        terminal, has wildmidi = wildmidi -- "$@"
+
+################################################################################
+# AUDIO / VIDEO
+################################################################################
+
+mime ^video|audio, has vlc,      X, flag f = vlc -- "$@"
+ext  iso,          has vlc,      X, flag f = vlc -- "$@"
+mime ^video|audio, has gmplayer, X, flag f = gmplayer -- "$@"
+mime ^video|audio, has smplayer, X, flag f = smplayer "$@"
+mime ^video,       has mpv,      X, flag f = mpv -- "$@"
+mime ^video,       has mpv,      X, flag f = mpv --fs -- "$@"
+mime ^video,       has mplayer2, X, flag f = mplayer2 -- "$@"
+mime ^video,       has mplayer2, X, flag f = mplayer2 -fs -- "$@"
+mime ^video,       has mplayer,  X, flag f = mplayer -- "$@"
+mime ^video,       has mplayer,  X, flag f = mplayer -fs -- "$@"
+mime ^video|audio, has totem,    X, flag f = totem -- "$@"
+mime ^video|audio, has totem,    X, flag f = totem --fullscreen -- "$@"
+
+################################################################################
+# VIDEO WITHOUT X
+################################################################################
+
+mime ^video, terminal, !X, has mpv       = mpv -- "$@"
+mime ^video, terminal, !X, has mplayer2  = mplayer2 -- "$@"
+mime ^video, terminal, !X, has mplayer   = mplayer -- "$@"
+
+################################################################################
+# DOCS
+################################################################################
+
+ext pdf, has evince,   X, flag f = evince -- "$@"
+ext pdf, has llpp,     X, flag f = llpp "$@"
+ext pdf, has zathura,  X, flag f = zathura -- "$@"
+ext pdf, has mupdf,    X, flag f = mupdf "$@"
+ext pdf, has mupdf-x11,X, flag f = mupdf-x11 "$@"
+ext pdf, has apvlv,    X, flag f = apvlv -- "$@"
+ext pdf, has xpdf,     X, flag f = xpdf -- "$@"
+ext pdf, has atril,    X, flag f = atril -- "$@"
+ext pdf, has okular,   X, flag f = okular -- "$@"
+ext pdf, has epdfview, X, flag f = epdfview -- "$@"
+ext pdf, has qpdfview, X, flag f = qpdfview "$@"
+
+ext docx?, has catdoc,       terminal = catdoc -- "$@" | "$PAGER"
+
+ext                        sxc|xlsx?|xlt|xlw|gnm|gnumeric, has gnumeric,    X, flag f = gnumeric -- "$@"
+ext                        sxc|xlsx?|xlt|xlw|gnm|gnumeric, has kspread,     X, flag f = kspread -- "$@"
+ext pptx?|od[dfgpst]|docx?|sxc|xlsx?|xlt|xlw|gnm|gnumeric, has libreoffice, X, flag f = libreoffice "$@"
+ext pptx?|od[dfgpst]|docx?|sxc|xlsx?|xlt|xlw|gnm|gnumeric, has soffice,     X, flag f = soffice "$@"
+ext pptx?|od[dfgpst]|docx?|sxc|xlsx?|xlt|xlw|gnm|gnumeric, has ooffice,     X, flag f = ooffice "$@"
+
+ext djvu, has zathura,X, flag f = zathura -- "$@"
+ext djvu, has evince, X, flag f = evince -- "$@"
+ext djvu, has atril,  X, flag f = atril -- "$@"
+
+################################################################################
+# IMAGES
+################################################################################
+
+ext xcf,         has gimp,      X, flag f = gimp -- "$@"
+
+mime ^image/svg, has inkscape,  X, flag f = inkscape -- "$@"
+mime ^image/svg, has display,   X, flag f = display -- "$@"
+
+mime ^image,     has pqiv,      X, flag f = pqiv -- "$@"
+mime ^image,     has sxiv,      X, flag f = sxiv -- "$@"
+mime ^image,     has feh,       X, flag f = feh -- "$@"
+mime ^image,     has mirage,    X, flag f = mirage -- "$@"
+mime ^image,     has ristretto, X, flag f = ristretto "$@"
+mime ^image,     has eog,       X, flag f = eog -- "$@"
+mime ^image,     has eom,       X, flag f = eom -- "$@"
+mime ^image,     has gimp,      X, flag f = gimp -- "$@"
+
+################################################################################
+# ARCHIVES
+################################################################################
+
+# avoid password prompt by providing empty password
+ext 7z, has 7z = 7z -p l "$@" | "$PAGER"
+# this requires atool
+ext ace|ar|arc|bz2?|cab|cpio|cpt|deb|dgc|dmg|gz,  has als     = als -- "$@" | "$PAGER"
+ext iso|jar|msi|pkg|rar|shar|tar|tgz|xar|xpi|xz|zip, has als     = als -- "$@" | "$PAGER"
+ext 7z|ace|ar|arc|bz2?|cab|cpio|cpt|deb|dgc|dmg|gz,  has aunpack = aunpack -- "$@"
+ext iso|jar|msi|pkg|rar|shar|tar|tgz|xar|xpi|xz|zip, has aunpack = aunpack -- "$@"
+
+# fallback:
+ext tar|gz, has tar = tar vvtf "$@" | "$PAGER"
+ext tar|gz, has tar = tar vvxf "$@"
+
+################################################################################
+# TEXT EDITOR FALLBACK
+################################################################################
+
+-label wallpaper, number 11, mime ^image, has feh, X = feh --bg-scale "$1"
+-label wallpaper, number 12, mime ^image, has feh, X = feh --bg-tile "$1"
+-label wallpaper, number 13, mime ^image, has feh, X = feh --bg-center "$1"
+-label wallpaper, number 14, mime ^image, has feh, X = feh --bg-fill "$1"
+
+              !mime ^text, !ext xml|json|csv|tex|py|pl|rb|js|sh|php  = ask
+label editor, !mime ^text, !ext xml|json|csv|tex|py|pl|rb|js|sh|php  = $EDITOR -- "$@"
+label pager,  !mime ^text, !ext xml|json|csv|tex|py|pl|rb|js|sh|php  = "$PAGER" -- "$@"
+
+################################################################################
+# EXECUTE PROG AS LAST RESORT
+################################################################################
+
+# very last action, so that it's never triggered accidentally, is to execute a program
+mime application/x-executable = "$1"
+
