@@ -300,9 +300,8 @@ map {{ keymap_open_dir_in_new_window }} shell -f {{ start_term_emulator }} {{ te
 # KEYMAPS: ENTRY HIDDEN FILES
 ################################################################################
 
-# NOTE: ranger doesn't like quotes around %d, but it handles name-with-spaces ok
-map {{ keymap_show_hidden_files_in_current_dir }} setlocal path=%d show_hidden true
-map {{ keymap_hide_hidden_files_in_current_dir }} setlocal path=%d show_hidden false
+map {{ keymap_show_hidden_files_in_current_dir }} setlocal path="%d" show_hidden true
+map {{ keymap_hide_hidden_files_in_current_dir }} setlocal path="%d" show_hidden false
 
 ################################################################################
 # KEYMAPS: ENTRY LISTINGS
