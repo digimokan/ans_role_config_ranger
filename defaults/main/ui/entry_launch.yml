@@ -7,6 +7,3 @@ keymap_open_dir_in_new_window: 'r'
 # show a list of programs that can open the entry, and select one to open it
 keymap_select_prog_to_open_entry: 'O'
 
-# open a new tab in the current terminal emulator instance
-keymap_open_new_term_emulator_tab: '<space>'
-
