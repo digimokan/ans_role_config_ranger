@@ -40,10 +40,6 @@
 # HTML
 ################################################################################
 
-# ext x?html?, has qutebrowser,    X, flag f = qutebrowser -- "$@"
-# ext x?html?, has firefox,        X, flag f = firefox -- "$@"
-# ext x?html?, has chromium,       X, flag f = chromium -- "$@"
-
 {% for prog in open_html_files_with %}
 ext x?html?, has {{ prog }}, X, flag f = {{ prog }} -- "$@"
 {% endfor %}
