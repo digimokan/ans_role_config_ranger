@@ -45,7 +45,7 @@
 # ext x?html?, has chromium,       X, flag f = chromium -- "$@"
 
 {% for prog in open_html_files_with %}
-ext x?html?, X, flag f = {{ prog }} -- "$@"
+ext x?html?, has {{ prog }}, X, flag f = {{ prog }} -- "$@"
 {% endfor %}
 
 ################################################################################
