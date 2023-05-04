@@ -4,3 +4,6 @@ keymap_edit_text_file_in_new_window: 'e'
 # launch start_term_emulator in new window, in the current ranger directory
 keymap_open_dir_in_new_window: 'r'
 
+# show a list of programs that can open the entry, and select one to open it
+keymap_select_prog_to_open_entry: 'O'
+

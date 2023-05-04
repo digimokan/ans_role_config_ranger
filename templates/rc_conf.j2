@@ -292,7 +292,7 @@ map {{ keymap_go_to_fuzzy_searched_entry }} console scout -ftsea%space
 
 # NOTE: ranger doesn't like quotes around %d, but it handles spaces-in-name ok
 map {{ keymap_edit_text_file_in_new_window }} shell -f {{ start_term_emulator }} {{ term_arg_set_dir }}%d {{ term_arg_exec_cmd }}'{{ start_text_editor }}"%p"'
-# map O       chain draw_possible_programs; console open_with%space
+map {{ keymap_select_prog_to_open_entry }} chain draw_possible_programs; console open_with%space
 # map <space> eval fm.execute_console("shell tmux new-window -c %d")
 map {{ keymap_open_dir_in_new_window }} shell -f {{ start_term_emulator }} {{ term_arg_set_dir }}%d
 
@@ -300,6 +300,7 @@ map {{ keymap_open_dir_in_new_window }} shell -f {{ start_term_emulator }} {{ te
 # KEYMAPS: ENTRY HIDDEN FILES
 ################################################################################
 
+# NOTE: need the double-quoted %d here
 map {{ keymap_show_hidden_files_in_current_dir }} setlocal path="%d" show_hidden true
 map {{ keymap_hide_hidden_files_in_current_dir }} setlocal path="%d" show_hidden false
 
