@@ -1,3 +1,6 @@
 # launch start_term_emulator in new window, and edit entry with start_text_editor
 keymap_edit_text_file_in_new_window: 'e'
 
+# launch start_term_emulator in new window, in the current ranger directory
+keymap_open_dir_in_new_window: 'r'
+

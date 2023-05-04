@@ -291,10 +291,9 @@ map {{ keymap_go_to_fuzzy_searched_entry }} console scout -ftsea%space
 ################################################################################
 
 map {{ keymap_edit_text_file_in_new_window }} shell -f {{ start_term_emulator }} {{ term_arg_set_dir }}"%d" {{ term_arg_exec_cmd }}'{{ start_text_editor }}"%p"'
-# map e       shell -f termite --directory=%d --exec="sh -c '. ${HOME}/dotfiles/tmux/scripts/ranger_edit_file_in_tmux.sh "%p"'"
 # map O       chain draw_possible_programs; console open_with%space
 # map <space> eval fm.execute_console("shell tmux new-window -c %d")
-# map r       shell -f termite --directory=%d --exec="sh -c '. ${HOME}/dotfiles/tmux/scripts/ranger_start_term_in_tmux.sh'"
+map {{ keymap_open_dir_in_new_window }} shell -f {{ start_term_emulator }} {{ term_arg_set_dir }}"%d"
 
 ################################################################################
 # KEYMAPS: ENTRY HIDDEN FILES
