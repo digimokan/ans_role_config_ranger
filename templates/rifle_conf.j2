@@ -54,15 +54,16 @@ mime ^text, label libreoffice, has libreoffice, X, flag f = libreoffice "$@"
                            ext xml|json|csv|tex|py|pl|rb|js|sh|php|h|c|hpp|cpp|md|adoc|txt|lua = {{ start_text_editor }} -- "$@"
 
 ################################################################################
-# MISC
+# SINGLE-PURPOSE
 ################################################################################
 
-ext 1                         = man "$1"
-ext s[wmf]c, has zsnes, X     = zsnes "$1"
-ext s[wmf]c, has snes9x-gtk,X = snes9x-gtk "$1"
-ext nes, has fceux, X         = fceux "$1"
-ext exe, has wine             = wine "$1"
-name ^[mM]akefile$            = make
+ext 1                          = man "$1"
+ext s[wmf]c, has zsnes, X      = zsnes "$1"
+ext s[wmf]c, has snes9x-gtk, X = snes9x-gtk "$1"
+ext nes, has fceux, X          = fceux "$1"
+ext exe, has wine              = wine "$1"
+name ^[mM]akefile$             = make
+ext xcf, has gimp, X, flag f   = gimp -- "$@"
 
 ################################################################################
 # AUDIO
@@ -106,7 +107,6 @@ ext pptx?|od[dfgpst]|docx?|sxc|xlsx?|xlt|xlw|gnm|gnumeric, has {{ prog }}, X, fl
 # IMAGES
 ################################################################################
 
-ext xcf,         has gimp,      X, flag f = gimp -- "$@"
 
 mime ^image/svg, has inkscape,  X, flag f = inkscape -- "$@"
 mime ^image/svg, has display,   X, flag f = display -- "$@"
