@@ -3,7 +3,7 @@
     dest: "{{ rifle_conf_path }}"
     src: "rifle_conf.j2"
     owner: "{{ ranger_user_name }}"
-    mode: '755'
+    mode: '644'
     force: yes
   vars:
     rifle_conf_path: "{{ ranger_user_config_dir }}/rifle.conf"
