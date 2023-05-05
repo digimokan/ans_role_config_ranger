@@ -65,18 +65,6 @@ ext exe, has wine             = wine "$1"
 name ^[mM]akefile$            = make
 
 ################################################################################
-# AUDIO WITHOUT X
-################################################################################
-
-# {% for prog in open_audio_files_with %}
-# mime ^audio|ogg$, terminal, has {{ prog }} = {{ prog }} -- "$@"
-# {% endfor %}
-
-# {% for prog in open_audio_files_with %}
-# ext midi?, terminal, has {{ prog }} = {{ prog }} -- "$@"
-# {% endfor %}
-
-################################################################################
 # AUDIO
 ################################################################################
 
@@ -95,14 +83,6 @@ mime ^video, has {{ prog }}, X, flag f = {{ prog }} -- "$@"
 {% for prog in open_video_files_with %}
 ext iso, has {{ prog }}, X, flag f = {{ prog }} -- "$@"
 {% endfor %}
-
-################################################################################
-# VIDEO WITHOUT X
-################################################################################
-
-# {% for prog in open_video_files_with %}
-# mime ^video, terminal, !X, has {{ prog }} = {{ prog }} -- "$@"
-# {% endfor %}
 
 ################################################################################
 # DOCS
