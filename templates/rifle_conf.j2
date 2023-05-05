@@ -68,20 +68,28 @@ name ^[mM]akefile$            = make
 # AUDIO WITHOUT X
 ################################################################################
 
-{% for prog in open_audio_files_with %}
-mime ^audio|ogg$, terminal, has {{ prog }} = {{ prog }} -- "$@"
-{% endfor %}
+# {% for prog in open_audio_files_with %}
+# mime ^audio|ogg$, terminal, has {{ prog }} = {{ prog }} -- "$@"
+# {% endfor %}
 
-{% for prog in open_audio_files_with %}
-ext midi?, terminal, has {{ prog }} = {{ prog }} -- "$@"
-{% endfor %}
+# {% for prog in open_audio_files_with %}
+# ext midi?, terminal, has {{ prog }} = {{ prog }} -- "$@"
+# {% endfor %}
 
 ################################################################################
-# AUDIO / VIDEO
+# AUDIO
 ################################################################################
 
 {% for prog in open_video_files_with %}
-mime ^video|audio, has {{ prog }}, X, flag f = {{ prog }} -- "$@"
+mime ^audio, has {{ prog }}, X, flag f = {{ prog }} -- "$@"
+{% endfor %}
+
+################################################################################
+# VIDEO
+################################################################################
+
+{% for prog in open_video_files_with %}
+mime ^video, has {{ prog }}, X, flag f = {{ prog }} -- "$@"
 {% endfor %}
 
 {% for prog in open_video_files_with %}
@@ -92,9 +100,9 @@ ext iso, has {{ prog }}, X, flag f = {{ prog }} -- "$@"
 # VIDEO WITHOUT X
 ################################################################################
 
-{% for prog in open_video_files_with %}
-mime ^video, terminal, !X, has {{ prog }} = {{ prog }} -- "$@"
-{% endfor %}
+# {% for prog in open_video_files_with %}
+# mime ^video, terminal, !X, has {{ prog }} = {{ prog }} -- "$@"
+# {% endfor %}
 
 ################################################################################
 # DOCS
