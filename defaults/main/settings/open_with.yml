@@ -2,3 +2,11 @@
 open_html_files_with: []
 # open_html_files_with: [ 'qutebrowser', 'firefox', 'chromium' ]
 
+# list of programs to open audio files with, by priority
+open_audio_files_with: []
+# open_audio_files_with: [ 'vlc', 'mpv' ]
+
+# list of programs to open video files with, by priority
+open_video_files_with: []
+# open_video_files_with: [ 'vlc', 'mpv' ]
+
