@@ -50,9 +50,7 @@ ext x?html?, has {{ prog }}, X, flag f = {{ prog }} -- "$@"
 
 mime ^text, label editor = {{ start_text_editor }} -- "$@"
 mime ^text, label libreoffice, has libreoffice, X, flag f = libreoffice "$@"
-# mime ^text, label pager  = {{ start_text_editor }} -- "$@"
 !mime ^text, label editor, ext xml|json|csv|tex|py|pl|rb|js|sh|php|h|c|hpp|cpp|md|adoc|txt|lua = {{ start_text_editor }} -- "$@"
-# !mime ^text, label pager,  ext xml|json|csv|tex|py|pl|rb|js|sh|php = {{ start_text_editor }}" -- "$@"
 
 ################################################################################
 # MISC
@@ -176,14 +174,8 @@ ext tar|gz, has tar = tar vvxf "$@"
 # TEXT EDITOR FALLBACK
 ################################################################################
 
--label wallpaper, number 11, mime ^image, has feh, X = feh --bg-scale "$1"
--label wallpaper, number 12, mime ^image, has feh, X = feh --bg-tile "$1"
--label wallpaper, number 13, mime ^image, has feh, X = feh --bg-center "$1"
--label wallpaper, number 14, mime ^image, has feh, X = feh --bg-fill "$1"
-
-              !mime ^text, !ext xml|json|csv|tex|py|pl|rb|js|sh|php  = ask
-label editor, !mime ^text, !ext xml|json|csv|tex|py|pl|rb|js|sh|php  = $EDITOR -- "$@"
-label pager,  !mime ^text, !ext xml|json|csv|tex|py|pl|rb|js|sh|php  = "$PAGER" -- "$@"
+              !mime ^text, !ext xml|json|csv|tex|py|pl|rb|js|sh|php|h|c|hpp|cpp|md|adoc|txt|lua = ask
+label editor, !mime ^text, !ext xml|json|csv|tex|py|pl|rb|js|sh|php|h|c|hpp|cpp|md|adoc|txt|lua = {{ start_text_editor }} -- "$@"
 
 ################################################################################
 # EXECUTE PROG AS LAST RESORT
