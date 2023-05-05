@@ -2,7 +2,3 @@
 open_html_files_with: []
 # open_html_files_with: [ 'qutebrowser', 'firefox', 'chromium' ]
 
-# list of programs to open text files with, by priority
-open_text_files_with: []
-# open_text_files_with: [ 'vim', 'libreoffice' ]
-
