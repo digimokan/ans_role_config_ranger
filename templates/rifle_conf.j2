@@ -49,13 +49,11 @@ ext x?html?, has {{ prog }}, X, flag f = {{ prog }} -- "$@"
 # --> must define as first action
 ################################################################################
 
-# original config here:
-# mime ^text,  label editor = tmux new-window vim -- "$@"
-mime ^text,  label editor = ${VISUAL:-$EDITOR} -- "$@"
-mime ^text,  label pager  = "$PAGER" -- "$@"
-!mime ^text, label editor, ext xml|json|csv|tex|py|pl|rb|js|sh|php = $EDITOR -- "$@"
-!mime ^text, label pager,  ext xml|json|csv|tex|py|pl|rb|js|sh|php = "$PAGER" -- "$@"
+mime ^text,  label editor = {{ start_text_editor }} -- "$@"
 mime ^text,  label libreoffice, has libreoffice, X, flag f = libreoffice "$@"
+mime ^text,  label pager  = {{ start_text_editor }} -- "$@"
+!mime ^text, label editor, ext xml|json|csv|tex|py|pl|rb|js|sh|php = {{ start_text_editor }} -- "$@"
+!mime ^text, label pager,  ext xml|json|csv|tex|py|pl|rb|js|sh|php = {{ start_text_editor }}" -- "$@"
 
 ################################################################################
 # MISC
