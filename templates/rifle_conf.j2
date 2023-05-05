@@ -68,11 +68,6 @@ name ^[mM]akefile$            = make
 # AUDIO WITHOUT X
 ################################################################################
 
-# mime ^audio|ogg$, terminal, has mpv      = mpv -- "$@"
-# mime ^audio|ogg$, terminal, has mplayer2 = mplayer2 -- "$@"
-# mime ^audio|ogg$, terminal, has mplayer  = mplayer -- "$@"
-# ext midi?,        terminal, has wildmidi = wildmidi -- "$@"
-
 {% for prog in open_audio_files_with %}
 mime ^audio|ogg$, terminal, has {{ prog }} = {{ prog }} -- "$@"
 {% endfor %}
@@ -85,19 +80,6 @@ ext midi?, terminal, has {{ prog }} = {{ prog }} -- "$@"
 # AUDIO / VIDEO
 ################################################################################
 
-# mime ^video|audio, has vlc,      X, flag f = vlc -- "$@"
-# ext  iso,          has vlc,      X, flag f = vlc -- "$@"
-# mime ^video|audio, has gmplayer, X, flag f = gmplayer -- "$@"
-# mime ^video|audio, has smplayer, X, flag f = smplayer "$@"
-# mime ^video,       has mpv,      X, flag f = mpv -- "$@"
-# mime ^video,       has mpv,      X, flag f = mpv --fs -- "$@"
-# mime ^video,       has mplayer2, X, flag f = mplayer2 -- "$@"
-# mime ^video,       has mplayer2, X, flag f = mplayer2 -fs -- "$@"
-# mime ^video,       has mplayer,  X, flag f = mplayer -- "$@"
-# mime ^video,       has mplayer,  X, flag f = mplayer -fs -- "$@"
-# mime ^video|audio, has totem,    X, flag f = totem -- "$@"
-# mime ^video|audio, has totem,    X, flag f = totem --fullscreen -- "$@"
-
 {% for prog in open_video_files_with %}
 mime ^video|audio, has {{ prog }}, X, flag f = {{ prog }} -- "$@"
 {% endfor %}
@@ -106,17 +88,9 @@ mime ^video|audio, has {{ prog }}, X, flag f = {{ prog }} -- "$@"
 ext iso, has {{ prog }}, X, flag f = {{ prog }} -- "$@"
 {% endfor %}
 
-{% for prog in open_video_files_with %}
-mime ^video, has {{ prog }}, X, flag f = {{ prog }} -- "$@"
-{% endfor %}
-
 ################################################################################
 # VIDEO WITHOUT X
 ################################################################################
-
-# mime ^video, terminal, !X, has mpv       = mpv -- "$@"
-# mime ^video, terminal, !X, has mplayer2  = mplayer2 -- "$@"
-# mime ^video, terminal, !X, has mplayer   = mplayer -- "$@"
 
 {% for prog in open_video_files_with %}
 mime ^video, terminal, !X, has {{ prog }} = {{ prog }} -- "$@"
