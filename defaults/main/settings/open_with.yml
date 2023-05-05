@@ -1,6 +1,6 @@
-# list of programs to open html files with, by priority
-open_html_files_with: []
-# open_html_files_with: [ 'qutebrowser', 'firefox', 'chromium' ]
+# list of programs to open pdf (and deja-vu, etc) files with, by priority
+open_pdf_files_with: []
+# open_audio_files_with: [ 'evince', 'zathura' ]
 
 # list of programs to open audio files with, by priority
 open_audio_files_with: []
@@ -9,4 +9,8 @@ open_audio_files_with: []
 # list of programs to open video files with, by priority
 open_video_files_with: []
 # open_video_files_with: [ 'vlc', 'mpv' ]
+
+# list of programs to open html files with, by priority
+open_html_files_with: []
+# open_html_files_with: [ 'qutebrowser', 'firefox', 'chromium' ]
 
