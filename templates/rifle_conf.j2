@@ -90,6 +90,8 @@ ext iso, has {{ prog }}, X, flag f = {{ prog }} -- "$@"
 
 {% for prog in open_pdf_files_with %}
 ext pdf, has {{ prog }}, X, flag f = {{ prog }} -- "$@"
+ext [e|x]ps[f|i], has {{ prog }}, X, flag f = {{ prog }} -- "$@"
+ext djv[u], has {{ prog }}, X, flag f = {{ prog }} -- "$@"
 {% endfor %}
 
 ################################################################################
