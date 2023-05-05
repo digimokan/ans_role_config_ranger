@@ -13,3 +13,6 @@
 - name: "Set program-selection to open specific file types in 'rifle.conf'"
   ansible.builtin.include_tasks: config_rifle_conf/main.yml
 
+- name: "Set program-selection to preview specific file types in 'scope.sh'"
+  ansible.builtin.include_tasks: config_scope_sh/main.yml
+
