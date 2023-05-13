@@ -7,14 +7,9 @@
 
 last_dir_save_file="{{ ranger_last_saved_dir_path }}"
 
-# ranger --choosedir="${last_dir_save_file}" -- "${@:-$PWD}"
-# if chosen_dir="$(cat -- "${last_dir_save_file}")" && [ -n "${chosen_dir}" ] && [ "${chosen_dir}" != "$PWD" ]; then
-#   cd -- "${chosen_dir}" || exit
-# fi
-
 # if the save file exits, switch to the saved dir
 if [ -f "${last_dir_save_file}" ]; then
-  cd "${last_dir_save_file}" || exit 1
+  cd "$(cat "${last_dir_save_file}")" || exit 1
 fi
 
 # Note: tell ranger to store the last directory switched to, on quit
