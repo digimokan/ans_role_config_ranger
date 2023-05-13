@@ -1,3 +1,9 @@
 # user-specific main ranger config dir
 ranger_user_config_dir: "/home/{{ ranger_user_name }}/.config/ranger"
 
+# user-specific main ranger config scripts dir
+ranger_user_config_scripts_dir: "/home/{{ ranger_user_name }}/.config/ranger/scripts"
+
+# path to text file that will save the last dir, on quit
+ranger_last_saved_dir_path: "{{ ranger_user_config_scripts_dir }}/last_saved_dir.txt"
+

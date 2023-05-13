@@ -1,3 +1,6 @@
 # cmd to run to start ranger
 ranger_main_cmd: "ranger"
 
+# cmd to run to start ranger in the last saved-on-ranger-quit directory
+ranger_in_last_dir_cmd: "{{ ranger_user_config_scripts_dir }}/ranger_in_last_dir.sh"
+
