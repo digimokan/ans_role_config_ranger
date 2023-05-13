@@ -1,17 +1,17 @@
 #!/bin/sh
 # vim: set filetype=sh:
 # PURPOSE:
-#   1. When ranger quits, store the last directory switched to.
-#   2. On next startup, switch to the stored directory.
+#   1. When ranger quits, store the last dir switched to.
+#   2. On next startup, switch to the stored dir.
 # REF: https://github.com/ranger/ranger/blob/master/examples/shell_automatic_cd.sh
 
 last_dir_save_file="{{ ranger_last_saved_dir_path }}"
 
-# if the save file exits, switch to the saved dir
+# if the save-file exits, switch to the saved dir
 if [ -f "${last_dir_save_file}" ]; then
   cd "$(cat "${last_dir_save_file}")" || exit 1
 fi
 
-# Note: tell ranger to store the last directory switched to, on quit
+# Note: tell ranger to store the last dir in the save-file, on quit
 ranger --choosedir="${last_dir_save_file}"
 
