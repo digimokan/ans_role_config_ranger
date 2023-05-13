@@ -1,0 +1,3 @@
+# command to run to preview a text file
+preview_text_file_cmd: 'cat'
+
