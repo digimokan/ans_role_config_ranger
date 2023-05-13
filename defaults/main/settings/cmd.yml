@@ -1,0 +1,3 @@
+# cmd to run to start ranger
+ranger_main_cmd: "ranger"
+

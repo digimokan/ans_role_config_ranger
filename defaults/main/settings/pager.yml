@@ -1,0 +1,3 @@
+# cmd to run to start the pager
+start_pager: "less"
+
