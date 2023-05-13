@@ -54,6 +54,7 @@ Install and configure the ranger file manager.
        - name: "Install and configure the ranger file manager"
          ansible.builtin.include_role:
            name: ans_role_config_ranger
+           public: yes
          vars:
            ranger_user_name: 'user2'
    ```
