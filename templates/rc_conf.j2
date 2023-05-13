@@ -307,8 +307,8 @@ map {{ keymap_hide_hidden_files_in_current_dir }} setlocal path="%d" show_hidden
 # KEYMAPS: ENTRY LISTINGS
 ################################################################################
 
-# map {{ keymap_toggle_entry_pager_view }} display_file
-map {{ keymap_toggle_entry_pager_view }} shell -f {{ start_pager }} %p
+# NOTE: ranger doesn't like quotes around %p, but it handles spaces-in-name ok
+map {{ keymap_toggle_entry_pager_view }} shell {{ start_pager }} %p
 map {{ keymap_list_entries_with_sizes }} linemode filename
 map {{ keymap_list_entries_with_mtimes }} linemode mtime
 map {{ keymap_list_entries_with_permissions }} linemode permissions
