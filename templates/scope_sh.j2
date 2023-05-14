@@ -69,19 +69,19 @@ handle_mime() {
     local mimetype="${1}"
     case "${mimetype}" in
         {{ mime_type_text }} )
-          {{ preview_text_file_cmd }} -- "${FILE_PATH}" && exit 5
+          {{ preview_text_file_cmd }} "${FILE_PATH}" && exit 5
           exit 1;;
 
         {{ mime_type_opendoc_odt }} )
-          {{ preview_odt_file_cmd }} -- "${FILE_PATH}" && exit 5
+          {{ preview_odt_file_cmd }} "${FILE_PATH}" && exit 5
           exit 1;;
 
         {{ mime_type_opendoc_ods }} )
-          {{ preview_ods_file_cmd }} -- "${FILE_PATH}" && exit 5
+          {{ preview_ods_file_cmd }} "${FILE_PATH}" && exit 5
           exit 1;;
 
         {{ mime_type_opendoc_odp }} )
-          {{ preview_odp_file_cmd }} -- "${FILE_PATH}" && exit 5
+          {{ preview_odp_file_cmd }} "${FILE_PATH}" && exit 5
           exit 1;;
 
         ## RTF and DOC
@@ -89,11 +89,11 @@ handle_mime() {
             ## Preview as text conversion
             ## note: catdoc does not always work for .doc files
             ## catdoc: http://www.wagner.pp.ru/~vitus/software/catdoc/
-            catdoc -- "${FILE_PATH}" && exit 5
+            catdoc "${FILE_PATH}" && exit 5
             exit 1;;
 
         {{ mime_type_ms_word_docx }} )
-          {{ preview_docx_file_cmd }} -- "${FILE_PATH}" && exit 5
+          {{ preview_docx_file_cmd }} "${FILE_PATH}" && exit 5
           exit 1;;
 
         ## XLS
@@ -101,7 +101,7 @@ handle_mime() {
             ## Preview as csv conversion
             ## xls2csv comes with catdoc:
             ##   http://www.wagner.pp.ru/~vitus/software/catdoc/
-            xls2csv -- "${FILE_PATH}" && exit 5
+            xls2csv "${FILE_PATH}" && exit 5
             exit 1;;
 
         {{ mime_type_epub }} )
