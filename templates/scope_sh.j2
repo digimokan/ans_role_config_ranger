@@ -76,6 +76,10 @@ handle_image() {
 handle_mime() {
     local mimetype="${1}"
     case "${mimetype}" in
+        {{ mime_type_text }} )
+          {{ preview_text_file_cmd }} -- "${FILE_PATH}" && exit 5
+          exit 1;;
+
         ## RTF and DOC
         text/rtf|*msword)
             ## Preview as text conversion
@@ -83,10 +87,6 @@ handle_mime() {
             ## catdoc: http://www.wagner.pp.ru/~vitus/software/catdoc/
             catdoc -- "${FILE_PATH}" && exit 5
             exit 1;;
-
-        {{ mime_type_epub }} )
-          {{ preview_epub_file_cmd }} -- "${FILE_PATH}" && exit 5
-          exit 1;;
 
         {{ mime_type_ms_word_docx }} )
           {{ preview_docx_file_cmd }} -- "${FILE_PATH}" && exit 5
@@ -100,8 +100,8 @@ handle_mime() {
             xls2csv -- "${FILE_PATH}" && exit 5
             exit 1;;
 
-        {{ mime_type_text }} )
-          {{ preview_text_file_cmd }} -- "${FILE_PATH}" && exit 5
+        {{ mime_type_epub }} )
+          {{ preview_epub_file_cmd }} -- "${FILE_PATH}" && exit 5
           exit 1;;
     esac
 }
