@@ -1,0 +1,6 @@
+# text file MIME type
+mime_type_text: 'text/* | */xml | */json'
+
+# MS word docx MIME type
+mime_type_ms_word_docx: '*wordprocessingml.document'
+

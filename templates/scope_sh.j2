@@ -84,13 +84,17 @@ handle_mime() {
             catdoc -- "${FILE_PATH}" && exit 5
             exit 1;;
 
-        ## DOCX, ePub, FB2 (using markdown)
+        ## ePub, FB2 (using markdown)
         ## You might want to remove "|epub" and/or "|fb2" below if you have
         ## uncommented other methods to preview those formats
-        *wordprocessingml.document|*/epub+zip|*/x-fictionbook+xml)
+        */epub+zip|*/x-fictionbook+xml)
             ## Preview as markdown conversion
             pandoc -s -t markdown -- "${FILE_PATH}" && exit 5
             exit 1;;
+
+        {{ mime_type_ms_word_docx }} )
+          {{ preview_docx_file_cmd }} -- "${FILE_PATH}" && exit 5
+          exit 1;;
 
         ## XLS
         *ms-excel)
@@ -100,10 +104,9 @@ handle_mime() {
             xls2csv -- "${FILE_PATH}" && exit 5
             exit 1;;
 
-        ## Text
-        text/* | */xml | */json)
-            {{ preview_text_file_cmd }} -- "${FILE_PATH}" && exit 5
-            exit 1;;
+        {{ mime_type_text }} )
+          {{ preview_text_file_cmd }} -- "${FILE_PATH}" && exit 5
+          exit 1;;
     esac
 }
 

@@ -1,3 +1,6 @@
 # command to run to preview a text file
 preview_text_file_cmd: 'cat'
 
+# command to run to preview a text file
+preview_docx_file_cmd: 'false'
+
