@@ -1,8 +1,17 @@
 # command to run to preview a text file
 preview_text_file_cmd: 'cat'
 
-# command to run to preview a text file
+# command to run to preview an OpenDocument-Text odt file
+preview_odt_file_cmd: 'false'
+
+# command to run to preview an MS Word docx file
 preview_docx_file_cmd: 'false'
+
+# command to run to preview an OpenDocument-Spreadsheet ods file
+preview_ods_file_cmd: 'false'
+
+# command to run to preview an OpenDocument-Presentation odp file
+preview_odp_file_cmd: 'false'
 
 # command to run to preview an epub file
 preview_epub_file_cmd: 'false'
