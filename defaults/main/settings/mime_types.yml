@@ -1,18 +1,21 @@
 # text file MIME type
 mime_type_text: 'text/* | */xml | */json'
 
-# OpenDocument-Text (odt) MIME type
+# OpenDocument MIME types
 mime_type_opendoc_odt: 'application/vnd.oasis.opendocument.text'
-
-# MS word docx MIME type
-mime_type_ms_word_docx: '*wordprocessingml.document'
-
-# OpenDocument-Spreadsheet (ods) MIME type
 mime_type_opendoc_ods: 'application/vnd.oasis.opendocument.spreadsheet'
-
-# OpenDocument-Presentation (odp) MIME type
 mime_type_opendoc_odp: 'application/vnd.oasis.opendocument.presentation'
+
+# MS Office MIME types
+mime_type_ms_word_docx: '*wordprocessingml.document'
 
 # epub e-book MIME type
 mime_type_epub: '*/epub+zip'
+
+# archive file and compressed file MIME types
+mime_type_tar: 'application/x-tar | application/x-gtar'
+mime_type_gzip: 'application/gzip'
+mime_type_zip: 'application/zip'
+mime_type_xz: 'application/x-xz'
+mime_type_7zip: 'application/x-7z-compressed'
 
