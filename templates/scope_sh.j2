@@ -38,19 +38,6 @@ PV_HEIGHT="${3}"         # Height of the preview pane (number of fitting charact
 IMAGE_CACHE_PATH="${4}"  # Full path that should be used to cache image preview
 PV_IMAGE_ENABLED="${5}"  # 'True' if image previews are enabled, 'False' otherwise.
 
-handle_extension() {
-    FILE_EXTENSION="${FILE_PATH##*.}"
-    FILE_EXTENSION_LOWER="$(printf "%s" "${FILE_EXTENSION}" | tr '[:upper:]' '[:lower:]')"
-
-    case "${FILE_EXTENSION_LOWER}" in
-        xlsx)
-            ## Preview as csv conversion
-            ## Uses: https://github.com/dilshod/xlsx2csv
-            xlsx2csv -- "${FILE_PATH}" && exit 5
-            exit 1;;
-    esac
-}
-
 handle_image() {
     local mimetype="${1}"
     case "${mimetype}" in
@@ -90,13 +77,13 @@ handle_mime() {
           {{ preview_docx_file_cmd }} "${FILE_PATH}" && exit 5
           exit 1;;
 
-        ## XLS
-        *ms-excel)
-            ## Preview as csv conversion
-            ## xls2csv comes with catdoc:
-            ##   http://www.wagner.pp.ru/~vitus/software/catdoc/
-            xls2csv "${FILE_PATH}" && exit 5
-            exit 1;;
+        {{ mime_type_ms_excel_xls }} )
+          {{ preview_xls_file_cmd }} "${FILE_PATH}" && exit 5
+          exit 1;;
+
+        {{ mime_type_ms_excel_xlsx }} )
+          {{ preview_xlsx_file_cmd }} "${FILE_PATH}" && exit 5
+          exit 1;;
 
         {{ mime_type_epub }} )
           {{ preview_epub_file_cmd }} "${FILE_PATH}" && exit 5
@@ -129,7 +116,6 @@ MIMETYPE="$( file --dereference --brief --mime-type -- "${FILE_PATH}" )"
 if [[ "${PV_IMAGE_ENABLED}" == 'True' ]]; then
     handle_image "${MIMETYPE}"
 fi
-handle_extension
 handle_mime "${MIMETYPE}"
 
 exit 1
