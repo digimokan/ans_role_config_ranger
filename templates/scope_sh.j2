@@ -53,6 +53,10 @@ handle_mime() {
           {{ preview_text_file_cmd }} "${FILE_PATH}" && exit 5
           exit 1;;
 
+        {{ mime_type_rtf }} )
+          {{ preview_rtf_file_cmd }} "${FILE_PATH}" && exit 5
+          exit 1;;
+
         {{ mime_type_opendoc_odt }} )
           {{ preview_odt_file_cmd }} "${FILE_PATH}" && exit 5
           exit 1;;
@@ -65,13 +69,9 @@ handle_mime() {
           {{ preview_odp_file_cmd }} "${FILE_PATH}" && exit 5
           exit 1;;
 
-        ## RTF and DOC
-        text/rtf|*msword)
-            ## Preview as text conversion
-            ## note: catdoc does not always work for .doc files
-            ## catdoc: http://www.wagner.pp.ru/~vitus/software/catdoc/
-            catdoc "${FILE_PATH}" && exit 5
-            exit 1;;
+        {{ mime_type_ms_word_doc }} )
+          {{ preview_doc_file_cmd }} "${FILE_PATH}" && exit 5
+          exit 1;;
 
         {{ mime_type_ms_word_docx }} )
           {{ preview_docx_file_cmd }} "${FILE_PATH}" && exit 5

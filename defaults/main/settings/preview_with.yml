@@ -1,12 +1,16 @@
 # command to run to preview a text file
 preview_text_file_cmd: 'cat'
 
+# command to run to preview an RTF file
+preview_rtf_file_cmd: 'false'
+
 # commands to run to preview OpenDocument office files
 preview_odt_file_cmd: 'false'
 preview_ods_file_cmd: 'false'
 preview_odp_file_cmd: 'false'
 
 # commands to run to preview MS Office files
+preview_doc_file_cmd: 'false'
 preview_docx_file_cmd: 'false'
 preview_xls_file_cmd: 'false'
 preview_xlsx_file_cmd: 'false'

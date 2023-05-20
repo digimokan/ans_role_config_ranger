@@ -3,12 +3,16 @@
 # text file MIME type
 mime_type_text: 'text/* | */xml | */json'
 
+# RTF file MIME type
+mime_type_rtf: 'text/rtf'
+
 # OpenDocument MIME types
 mime_type_opendoc_odt: 'application/vnd.oasis.opendocument.text'
 mime_type_opendoc_ods: 'application/vnd.oasis.opendocument.spreadsheet'
 mime_type_opendoc_odp: 'application/vnd.oasis.opendocument.presentation'
 
 # MS Office MIME types
+mime_type_ms_word_doc: '*msword'
 mime_type_ms_word_docx: '*wordprocessingml.document'
 mime_type_ms_excel_xls: '*ms-excel'
 mime_type_ms_excel_xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
