@@ -2,22 +2,13 @@
 # vim: set filetype=bash:
 # ORIGINAL: copied from system /usr/share/doc/ranger/config/scope.sh
 # PURPOSE:  show full preview of media files in terminal in ranger
-# SOURCING: ranger sources this *instead of* system scope.sh
+# SOURCING:
+#   1. ranger sources this *instead of* system scope.sh.
+#   2. if option `use_preview_script` is `true`, this script will run.
+#   3. ANSI color codes are supported.
 
 set -o noclobber -o noglob -o nounset -o pipefail
 IFS=$'\n'
-
-## If the option `use_preview_script` is set to `true`,
-## then this script will be called and its output will be displayed in ranger.
-## ANSI color codes are supported.
-## STDIN is disabled, so interactive scripts won't work properly
-
-## This script is considered a configuration file and must be updated manually.
-## It will be left untouched if you upgrade ranger.
-
-## Because of some automated testing we do on the script #'s for comments need
-## to be doubled up. Code that is commented out, because it's an alternative for
-## example, gets only one #.
 
 ## Meanings of exit codes:
 ## code | meaning    | action of ranger
@@ -31,92 +22,94 @@ IFS=$'\n'
 ## 6    | image      | Display the image `$IMAGE_CACHE_PATH` points to as an image preview
 ## 7    | image      | Display the file directly as an image
 
-## Script arguments
+## SCRIPT ARGUMENTS
+
 FILE_PATH="${1}"         # Full path of the highlighted file
 PV_WIDTH="${2}"          # Width of the preview pane (number of fitting characters)
 PV_HEIGHT="${3}"         # Height of the preview pane (number of fitting characters)
 IMAGE_CACHE_PATH="${4}"  # Full path that should be used to cache image preview
 PV_IMAGE_ENABLED="${5}"  # 'True' if image previews are enabled, 'False' otherwise.
 
+## GLOBAL VARS
+
+MIMETYPE="$( file --dereference --brief --mime-type -- "${FILE_PATH}" )"
+
 handle_image() {
-    local mimetype="${1}"
-    case "${mimetype}" in
-        image/*)
-            exit 7;;
-    esac
+  case "${MIMETYPE}" in
+    image/*)
+      exit 7;;
+  esac
 }
 
 handle_mime() {
-    local mimetype="${1}"
-    case "${mimetype}" in
-        {{ mime_type_text }} )
-          {{ preview_text_file_cmd }} "${FILE_PATH}" && exit 5
-          exit 1;;
+  case "${MIMETYPE}" in
+    {{ mime_type_text }} )
+      {{ preview_text_file_cmd }} "${FILE_PATH}" && exit 5
+      exit 1;;
 
-        {{ mime_type_rtf }} )
-          {{ preview_rtf_file_cmd }} "${FILE_PATH}" && exit 5
-          exit 1;;
+    {{ mime_type_rtf }} )
+      {{ preview_rtf_file_cmd }} "${FILE_PATH}" && exit 5
+      exit 1;;
 
-        {{ mime_type_opendoc_odt }} )
-          {{ preview_odt_file_cmd }} "${FILE_PATH}" && exit 5
-          exit 1;;
+    {{ mime_type_opendoc_odt }} )
+      {{ preview_odt_file_cmd }} "${FILE_PATH}" && exit 5
+      exit 1;;
 
-        {{ mime_type_opendoc_ods }} )
-          {{ preview_ods_file_cmd }} "${FILE_PATH}" && exit 5
-          exit 1;;
+    {{ mime_type_opendoc_ods }} )
+      {{ preview_ods_file_cmd }} "${FILE_PATH}" && exit 5
+      exit 1;;
 
-        {{ mime_type_opendoc_odp }} )
-          {{ preview_odp_file_cmd }} "${FILE_PATH}" && exit 5
-          exit 1;;
+    {{ mime_type_opendoc_odp }} )
+      {{ preview_odp_file_cmd }} "${FILE_PATH}" && exit 5
+      exit 1;;
 
-        {{ mime_type_ms_word_doc }} )
-          {{ preview_doc_file_cmd }} "${FILE_PATH}" && exit 5
-          exit 1;;
+    {{ mime_type_ms_word_doc }} )
+      {{ preview_doc_file_cmd }} "${FILE_PATH}" && exit 5
+      exit 1;;
 
-        {{ mime_type_ms_word_docx }} )
-          {{ preview_docx_file_cmd }} "${FILE_PATH}" && exit 5
-          exit 1;;
+    {{ mime_type_ms_word_docx }} )
+      {{ preview_docx_file_cmd }} "${FILE_PATH}" && exit 5
+      exit 1;;
 
-        {{ mime_type_ms_excel_xls }} )
-          {{ preview_xls_file_cmd }} "${FILE_PATH}" && exit 5
-          exit 1;;
+    {{ mime_type_ms_excel_xls }} )
+      {{ preview_xls_file_cmd }} "${FILE_PATH}" && exit 5
+      exit 1;;
 
-        {{ mime_type_ms_excel_xlsx }} )
-          {{ preview_xlsx_file_cmd }} "${FILE_PATH}" && exit 5
-          exit 1;;
+    {{ mime_type_ms_excel_xlsx }} )
+      {{ preview_xlsx_file_cmd }} "${FILE_PATH}" && exit 5
+      exit 1;;
 
-        {{ mime_type_epub }} )
-          {{ preview_epub_file_cmd }} "${FILE_PATH}" && exit 5
-          exit 1;;
+    {{ mime_type_epub }} )
+      {{ preview_epub_file_cmd }} "${FILE_PATH}" && exit 5
+      exit 1;;
 
-        {{ mime_type_tar }} )
-          {{ preview_tar_file_cmd }} "${FILE_PATH}" && exit 5
-          exit 1;;
+    {{ mime_type_tar }} )
+      {{ preview_tar_file_cmd }} "${FILE_PATH}" && exit 5
+      exit 1;;
 
-        {{ mime_type_gzip }} )
-          {{ preview_gzip_file_cmd }} "${FILE_PATH}" && exit 5
-          exit 1;;
+    {{ mime_type_gzip }} )
+      {{ preview_gzip_file_cmd }} "${FILE_PATH}" && exit 5
+      exit 1;;
 
-        {{ mime_type_zip }} )
-          {{ preview_zip_file_cmd }} "${FILE_PATH}" && exit 5
-          exit 1;;
+    {{ mime_type_zip }} )
+      {{ preview_zip_file_cmd }} "${FILE_PATH}" && exit 5
+      exit 1;;
 
-        {{ mime_type_xz }} )
-          {{ preview_xz_file_cmd }} "${FILE_PATH}" && exit 5
-          exit 1;;
+    {{ mime_type_xz }} )
+      {{ preview_xz_file_cmd }} "${FILE_PATH}" && exit 5
+      exit 1;;
 
-        {{ mime_type_7zip }} )
-          {{ preview_7zip_file_cmd }} "${FILE_PATH}" && exit 5
-          exit 1;;
-    esac
+    {{ mime_type_7zip }} )
+      {{ preview_7zip_file_cmd }} "${FILE_PATH}" && exit 5
+      exit 1;;
+  esac
 }
 
 
-MIMETYPE="$( file --dereference --brief --mime-type -- "${FILE_PATH}" )"
 if [[ "${PV_IMAGE_ENABLED}" == 'True' ]]; then
-    handle_image "${MIMETYPE}"
+  handle_image
 fi
-handle_mime "${MIMETYPE}"
+handle_mime
 
 exit 1
 
