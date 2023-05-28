@@ -55,7 +55,7 @@ exit_and_display_file_as_image() {
 handle_image() {
   case "${MIMETYPE}" in
     image/*)
-      exit "${EC_EXIT_AND_DISPLAY_FILE_AS_IMAGE}";;
+      exit_and_display_file_as_image;;
   esac
 }
 
