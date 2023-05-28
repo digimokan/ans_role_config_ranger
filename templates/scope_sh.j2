@@ -10,20 +10,7 @@
 set -o noclobber -o noglob -o nounset -o pipefail
 IFS=$'\n'
 
-## Meanings of exit codes:
-## code | meaning    | action of ranger
-## -----+------------+-------------------------------------------
-## 0    | success    | Display stdout as preview
-## 1    | no preview | Display no preview at all
-## 2    | plain text | Display the plain content of the file
-## 3    | fix width  | Don't reload when width changes
-## 4    | fix height | Don't reload when height changes
-## 5    | fix both   | Don't ever reload
-## 6    | image      | Display the image `$IMAGE_CACHE_PATH` points to as an image preview
-## 7    | image      | Display the file directly as an image
-
 ## SCRIPT ARGUMENTS
-
 FILE_PATH="${1}"         # Full path of the highlighted file
 PV_WIDTH="${2}"          # Width of the preview pane (number of fitting characters)
 PV_HEIGHT="${3}"         # Height of the preview pane (number of fitting characters)
@@ -31,85 +18,115 @@ IMAGE_CACHE_PATH="${4}"  # Full path that should be used to cache image preview
 PV_IMAGE_ENABLED="${5}"  # 'True' if image previews are enabled, 'False' otherwise.
 
 ## GLOBAL VARS
-
 MIMETYPE="$( file --dereference --brief --mime-type -- "${FILE_PATH}" )"
+
+exit_and_display_stdout_as_preview() {
+ exit 0
+}
+
+exit_and_do_not_display_preview() {
+ exit 1
+}
+
+exit_and_display_file_as_text() {
+ exit 2
+}
+
+exit_and_do_not_reload_if_width_changes() {
+ exit 3
+}
+
+exit_and_do_not_reload_if_height_changes() {
+ exit 4
+}
+
+exit_and_never_reload() {
+ exit 5
+}
+
+exit_and_display_image_cache_path_file() {
+ exit 6
+}
+
+exit_and_display_file_as_image() {
+ exit 7
+}
 
 handle_image() {
   case "${MIMETYPE}" in
     image/*)
-      exit 7;;
+      exit "${EC_EXIT_AND_DISPLAY_FILE_AS_IMAGE}";;
   esac
 }
 
 handle_mime() {
   case "${MIMETYPE}" in
     {{ mime_type_text }} )
-      {{ preview_text_file_cmd }} "${FILE_PATH}" && exit 5
-      exit 1;;
+      {{ preview_text_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      exit_and_do_not_display_preview;;
 
     {{ mime_type_rtf }} )
-      {{ preview_rtf_file_cmd }} "${FILE_PATH}" && exit 5
-      exit 1;;
+      {{ preview_rtf_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      exit_and_do_not_display_preview;;
 
     {{ mime_type_opendoc_odt }} )
-      {{ preview_odt_file_cmd }} "${FILE_PATH}" && exit 5
-      exit 1;;
+      {{ preview_odt_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      exit_and_do_not_display_preview;;
 
     {{ mime_type_opendoc_ods }} )
-      {{ preview_ods_file_cmd }} "${FILE_PATH}" && exit 5
-      exit 1;;
+      {{ preview_ods_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      exit_and_do_not_display_preview;;
 
     {{ mime_type_opendoc_odp }} )
-      {{ preview_odp_file_cmd }} "${FILE_PATH}" && exit 5
-      exit 1;;
+      {{ preview_odp_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      exit_and_do_not_display_preview;;
 
     {{ mime_type_ms_word_doc }} )
-      {{ preview_doc_file_cmd }} "${FILE_PATH}" && exit 5
-      exit 1;;
+      {{ preview_doc_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      exit_and_do_not_display_preview;;
 
     {{ mime_type_ms_word_docx }} )
-      {{ preview_docx_file_cmd }} "${FILE_PATH}" && exit 5
-      exit 1;;
+      {{ preview_docx_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      exit_and_do_not_display_preview;;
 
     {{ mime_type_ms_excel_xls }} )
-      {{ preview_xls_file_cmd }} "${FILE_PATH}" && exit 5
-      exit 1;;
+      {{ preview_xls_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      exit_and_do_not_display_preview;;
 
     {{ mime_type_ms_excel_xlsx }} )
-      {{ preview_xlsx_file_cmd }} "${FILE_PATH}" && exit 5
-      exit 1;;
+      {{ preview_xlsx_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      exit_and_do_not_display_preview;;
 
     {{ mime_type_epub }} )
-      {{ preview_epub_file_cmd }} "${FILE_PATH}" && exit 5
-      exit 1;;
+      {{ preview_epub_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      exit_and_do_not_display_preview;;
 
     {{ mime_type_tar }} )
-      {{ preview_tar_file_cmd }} "${FILE_PATH}" && exit 5
-      exit 1;;
+      {{ preview_tar_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      exit_and_do_not_display_preview;;
 
     {{ mime_type_gzip }} )
-      {{ preview_gzip_file_cmd }} "${FILE_PATH}" && exit 5
-      exit 1;;
+      {{ preview_gzip_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      exit_and_do_not_display_preview;;
 
     {{ mime_type_zip }} )
-      {{ preview_zip_file_cmd }} "${FILE_PATH}" && exit 5
-      exit 1;;
+      {{ preview_zip_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      exit_and_do_not_display_preview;;
 
     {{ mime_type_xz }} )
-      {{ preview_xz_file_cmd }} "${FILE_PATH}" && exit 5
-      exit 1;;
+      {{ preview_xz_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      exit_and_do_not_display_preview;;
 
     {{ mime_type_7zip }} )
-      {{ preview_7zip_file_cmd }} "${FILE_PATH}" && exit 5
-      exit 1;;
+      {{ preview_7zip_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      exit_and_do_not_display_preview;;
   esac
 }
-
 
 if [[ "${PV_IMAGE_ENABLED}" == 'True' ]]; then
   handle_image
 fi
 handle_mime
 
-exit 1
+exit_and_do_not_display_preview
 
