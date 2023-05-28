@@ -57,52 +57,52 @@ determine_file_mime_type() {
 preview_file_by_mime_type() {
   case "${MIMETYPE}" in
     {{ mime_type_text }} )
-      {{ preview_text_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      {{ preview_text_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
 
     {{ mime_type_rtf }} )
-      {{ preview_rtf_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      {{ preview_rtf_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
 
     {{ mime_type_opendoc_odt }} )
-      {{ preview_odt_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      {{ preview_odt_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
 
     {{ mime_type_opendoc_ods }} )
-      {{ preview_ods_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      {{ preview_ods_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
 
     {{ mime_type_opendoc_odp }} )
-      {{ preview_odp_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      {{ preview_odp_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
 
     {{ mime_type_ms_word_doc }} )
-      {{ preview_doc_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      {{ preview_doc_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
 
     {{ mime_type_ms_word_docx }} )
-      {{ preview_docx_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      {{ preview_docx_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
 
     {{ mime_type_ms_excel_xls }} )
-      {{ preview_xls_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      {{ preview_xls_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
 
     {{ mime_type_ms_excel_xlsx }} )
-      {{ preview_xlsx_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      {{ preview_xlsx_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
 
     {{ mime_type_epub }} )
-      {{ preview_epub_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      {{ preview_epub_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
 
     {{ mime_type_tar }} )
-      {{ preview_tar_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      {{ preview_tar_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
 
     {{ mime_type_gzip }} )
-      {{ preview_gzip_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      {{ preview_gzip_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
 
     {{ mime_type_zip }} )
-      {{ preview_zip_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      {{ preview_zip_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
 
     {{ mime_type_xz }} )
-      {{ preview_xz_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      {{ preview_xz_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
 
     {{ mime_type_7zip }} )
-      {{ preview_7zip_file_cmd }} "${FILE_PATH}" && exit_and_never_reload
+      {{ preview_7zip_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
 
     {{ mime_type_image }} )
-      [[ "${PV_IMAGE_ENABLED}" == 'True' ]] && exit_and_display_file_as_image
+      [ "${PV_IMAGE_ENABLED}" = 'True' ] && exit_and_display_file_as_image;;
   esac
 }
 
