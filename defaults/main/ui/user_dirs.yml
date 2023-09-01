@@ -1,0 +1,10 @@
+# paths used for jumps and special settings (see downloads.yml, entry_trash.yml)
+ranger_user_documents_dir: "/home/{{ ranger_user_name }}/Documents"
+ranger_user_desktop_dir: "/home/{{ ranger_user_name }}/Desktop"
+ranger_user_download_dir: "/home/{{ ranger_user_name }}/Downloads"
+ranger_user_music_dir: "/home/{{ ranger_user_name }}/Music"
+ranger_user_pictures_dir: "/home/{{ ranger_user_name }}/Pictures"
+ranger_user_videos_dir: "/home/{{ ranger_user_name }}/Videos"
+ranger_user_trash_dir: "/home/{{ ranger_user_name }}/.trash"
+ranger_user_devel_dir: "/home/{{ ranger_user_name }}/Devel"
+

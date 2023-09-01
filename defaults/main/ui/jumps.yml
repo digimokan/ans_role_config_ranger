@@ -1,15 +1,15 @@
-# keymaps_go_to_dir:
+# keymaps used for jumps
 keymaps_go_to_dir:
-  - { key_presses: 'g/', dir: "/" }
-  - { key_presses: 'gn', dir: "/mnt" }
-  - { key_presses: 'gm', dir: "/media" }
-  - { key_presses: 'g,', dir: "/home/{{ ranger_user_name }}" }
-  - { key_presses: 'g.', dir: "/home/{{ ranger_user_name }}/Documents" }
-  - { key_presses: 'g-', dir: "/home/{{ ranger_user_name }}/Desktop" }
-  - { key_presses: 'gw', dir: "/home/{{ ranger_user_name }}/Downloads" }
-  - { key_presses: 'gu', dir: "/home/{{ ranger_user_name }}/Music" }
-  - { key_presses: 'gi', dir: "/home/{{ ranger_user_name }}/Pictures" }
-  - { key_presses: 'gv', dir: "/home/{{ ranger_user_name }}/Videos" }
-  - { key_presses: 'gb', dir: "{{ ranger_trash_dir }}" }
-  - { key_presses: 'g<space>', dir: "/home/{{ ranger_user_name }}/Devel" }
+  - { key_presses: 'g/',       dir: "/" }
+  - { key_presses: 'gn',       dir: "/mnt" }
+  - { key_presses: 'gm',       dir: "/media" }
+  - { key_presses: 'g,',       dir: "/home/{{ ranger_user_name }}" }
+  - { key_presses: 'g.',       dir: "{{ ranger_user_documents_dir }}" }
+  - { key_presses: 'g-',       dir: "{{ ranger_user_desktop_dir }}" }
+  - { key_presses: 'gw',       dir: "{{ ranger_user_download_dir }}" }
+  - { key_presses: 'gu',       dir: "{{ ranger_user_music_dir }}" }
+  - { key_presses: 'gi',       dir: "{{ ranger_user_pictures_dir }}" }
+  - { key_presses: 'gv',       dir: "{{ ranger_user_videos_dir }}" }
+  - { key_presses: 'gb',       dir: "{{ ranger_user_trash_dir }}" }
+  - { key_presses: 'g<space>', dir: "{{ ranger_user_devel_dir }}" }
 
