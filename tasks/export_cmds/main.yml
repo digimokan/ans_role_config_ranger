@@ -1,0 +1,5 @@
+- name: "Set facts for ext roles: 'ranger_main_cmd' and 'ranger_in_last_dir_cmd'"
+  ansible.builtin.set_fact:
+    ranger_main_cmd: "ranger"
+    ranger_in_last_dir_cmd: "{{ ranger_user_config_scripts_dir }}/ranger_in_last_dir.sh"
+
