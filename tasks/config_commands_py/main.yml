@@ -4,7 +4,7 @@
     src: "commands.j2"
     owner: "{{ ranger_user_name }}"
     mode: '644'
-    force: yes
+    force: true
   vars:
     commands_py_path: "{{ ranger_user_config_dir }}/commands.py"
   become: true

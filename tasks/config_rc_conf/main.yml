@@ -4,7 +4,7 @@
     src: "rc_conf.j2"
     owner: "{{ ranger_user_name }}"
     mode: '644'
-    force: yes
+    force: true
   vars:
     rc_conf_path: "{{ ranger_user_config_dir }}/rc.conf"
   become: true

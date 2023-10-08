@@ -13,7 +13,7 @@
     src: "ranger_in_last_dir_sh.j2"
     owner: "{{ ranger_user_name }}"
     mode: '755'
-    force: yes
+    force: true
   become: true
   become_user: root
 

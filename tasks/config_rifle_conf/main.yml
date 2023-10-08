@@ -4,7 +4,7 @@
     src: "rifle_conf.j2"
     owner: "{{ ranger_user_name }}"
     mode: '644'
-    force: yes
+    force: true
   vars:
     rifle_conf_path: "{{ ranger_user_config_dir }}/rifle.conf"
   become: true
