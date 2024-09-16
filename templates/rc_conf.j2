@@ -66,8 +66,7 @@ set padding_right false
 set preview_images {{ 'true' if (ranger_image_preview_selection != 'none') else 'false' }}
 
 # image-file drawing method (see upstream rc.conf ref for available options)
-# set preview_images_method {{ ranger_image_preview_selection if (ranger_image_preview_selection != 'none') else 'urxvt' }}
-set preview_images_method {{ ranger_image_preview_selection }}
+set preview_images_method {{ ranger_image_preview_selection if (ranger_image_preview_selection != 'none') else 'urxvt' }}
 
 ################################################################################
 # VCS
