@@ -20,8 +20,10 @@ preview_docx_file_cmd: 'false'
 preview_xls_file_cmd: 'false'
 preview_xlsx_file_cmd: 'false'
 
-# command to run to text-preview a pdf file
-preview_pdf_file_cmd: 'false'
+# command prefix and suffix to run to text-preview a pdf file
+# Note: run with [prefix] path/to/file.pdf [suffix] width-of-preview
+preview_pdf_file_cmd_prefix: 'false'
+preview_pdf_file_cmd_suffix: 'false'
 
 # command to run to text-preview an epub file
 preview_epub_file_cmd: 'false'

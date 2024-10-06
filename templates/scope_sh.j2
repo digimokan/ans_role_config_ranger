@@ -84,7 +84,7 @@ preview_file_by_mime_type() {
       {{ preview_xlsx_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
 
     {{ mime_type_pdf }} )
-      {{ preview_pdf_file_cmd }} -- "${FILE_PATH}" 1-10 | fmt -w "${PV_WIDTH}" && exit_and_never_reload;;
+      {{ preview_pdf_file_cmd_prefix }} "${FILE_PATH}" {{ preview_pdf_file_cmd_suffix }} "${PV_WIDTH}" && exit_and_never_reload;;
 
     {{ mime_type_epub }} )
       {{ preview_epub_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
