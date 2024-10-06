@@ -17,6 +17,9 @@ mime_type_ms_word_docx: '*wordprocessingml.document'
 mime_type_ms_excel_xls: '*ms-excel'
 mime_type_ms_excel_xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 
+# PDF MIME type
+mime_type_pdf: 'application/pdf'
+
 # epub e-book MIME type
 mime_type_epub: '*/epub+zip'
 
