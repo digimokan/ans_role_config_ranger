@@ -1,5 +1,0 @@
-# program to use to preview images
-# --> set 'none' for no image previews
-# --> see upstream rc.conf source for available preview programs
-ranger_image_preview_selection: 'none'
-

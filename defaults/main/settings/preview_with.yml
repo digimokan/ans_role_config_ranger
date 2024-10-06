@@ -4,6 +4,11 @@ preview_text_file_cmd: 'cat'
 # command to run to preview an RTF file
 preview_rtf_file_cmd: 'false'
 
+# program to use to preview images
+# --> set 'none' for no image previews
+# --> available preview programs: https://github.com/ranger/ranger/blob/master/ranger/config/rc.conf
+ranger_image_preview_selection: 'none'
+
 # commands to run to preview OpenDocument office files
 preview_odt_file_cmd: 'false'
 preview_ods_file_cmd: 'false'
