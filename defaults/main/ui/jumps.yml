@@ -1,16 +1,21 @@
-# keymaps used for jumps
-keymaps_go_to_dir:
-  - { key_presses: 'g/',       dir: "/" }
-  - { key_presses: 'gt',       dir: "/mnt" }
-  - { key_presses: 'gm',       dir: "/media" }
-  - { key_presses: 'g,',       dir: "/home/{{ ranger_user_name }}" }
-  - { key_presses: 'g.',       dir: "{{ ranger_user_documents_dir }}" }
-  - { key_presses: 'g-',       dir: "{{ ranger_user_desktop_dir }}" }
-  - { key_presses: 'gw',       dir: "{{ ranger_user_download_dir }}" }
-  - { key_presses: 'gu',       dir: "{{ ranger_user_music_dir }}" }
-  - { key_presses: 'gi',       dir: "{{ ranger_user_pictures_dir }}" }
-  - { key_presses: 'gv',       dir: "{{ ranger_user_videos_dir }}" }
-  - { key_presses: 'gb',       dir: "{{ ranger_user_trash_dir }}" }
-  - { key_presses: 'gn',       dir: "{{ ranger_user_fileserver_dir }}" }
-  - { key_presses: 'g<space>', dir: "{{ ranger_user_devel_dir }}" }
+# standard keymaps used for jumps
+# see user_dirs.yml for directory variables
+ranger_keymap_jump_to_root_dir: "g/"
+ranger_keymap_jump_to_mnt_dir: "gt"
+ranger_keymap_jump_to_media_dir: "gm"
+ranger_keymap_jump_to_fileserver_dir: "gn"
+ranger_keymap_jump_to_user_home_dir: "g,"
+ranger_keymap_jump_to_user_documents_dir: "g."
+ranger_keymap_jump_to_user_desktop_dir: "g-"
+ranger_keymap_jump_to_user_download_dir: "gw"
+ranger_keymap_jump_to_user_music_dir: "gu"
+ranger_keymap_jump_to_user_pictures_dir: "gi"
+ranger_keymap_jump_to_user_videos_dir: "gv"
+ranger_keymap_jump_to_user_trash_dir: "gb"
+ranger_keymap_jump_to_user_devel_dir: "g<space>"
+
+# list of extra/custom keymaps used for jumps
+ranger_extra_keymaps_jump_to_dir: []
+# ranger_extra_keymaps_jump_to_dir:
+#   - { key_presses: 'gx',       dir: "/var/log/newlog" }
 
