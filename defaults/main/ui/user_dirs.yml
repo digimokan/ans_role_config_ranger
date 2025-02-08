@@ -7,4 +7,5 @@ ranger_user_pictures_dir: "/home/{{ ranger_user_name }}/Pictures"
 ranger_user_videos_dir: "/home/{{ ranger_user_name }}/Videos"
 ranger_user_trash_dir: "/home/{{ ranger_user_name }}/.trash"
 ranger_user_devel_dir: "/home/{{ ranger_user_name }}/Devel"
+ranger_user_fileserver_dir: "/net"
 

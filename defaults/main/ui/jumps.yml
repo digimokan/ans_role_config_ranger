@@ -1,7 +1,7 @@
 # keymaps used for jumps
 keymaps_go_to_dir:
   - { key_presses: 'g/',       dir: "/" }
-  - { key_presses: 'gn',       dir: "/mnt" }
+  - { key_presses: 'gt',       dir: "/mnt" }
   - { key_presses: 'gm',       dir: "/media" }
   - { key_presses: 'g,',       dir: "/home/{{ ranger_user_name }}" }
   - { key_presses: 'g.',       dir: "{{ ranger_user_documents_dir }}" }
@@ -11,5 +11,6 @@ keymaps_go_to_dir:
   - { key_presses: 'gi',       dir: "{{ ranger_user_pictures_dir }}" }
   - { key_presses: 'gv',       dir: "{{ ranger_user_videos_dir }}" }
   - { key_presses: 'gb',       dir: "{{ ranger_user_trash_dir }}" }
+  - { key_presses: 'gn',       dir: "{{ ranger_user_fileserver_dir }}" }
   - { key_presses: 'g<space>', dir: "{{ ranger_user_devel_dir }}" }
 
