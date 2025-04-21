@@ -303,7 +303,7 @@ map {{ ranger_keymap_jump_to_user_devel_dir }} eval fm.cd("{{ ranger_user_devel_
 ################################################################################
 
 # NOTE: ranger doesn't like quotes around %d, but it handles spaces-in-name ok
-map {{ keymap_edit_text_file_in_new_window }} shell -f {{ start_term_emulator }} {{ term_arg_set_dir }}%d {{ term_arg_exec_cmd }} {{ start_text_editor }} "%p"
+map {{ keymap_edit_text_file_in_new_window }} shell -f {{ start_term_emulator }} {{ term_arg_set_dir }}%d {{ term_arg_exec_cmd }}{{ start_text_editor }} "%p"{{ term_arg_exec_end }}
 # NOTE: ranger doesn't like quotes around %d, but it handles spaces-in-name ok
 map {{ keymap_open_dir_in_new_window }} shell -f {{ start_term_emulator }} {{ term_arg_set_dir }}%d
 map {{ keymap_select_prog_to_open_entry }} chain draw_possible_programs; console open_with%space
