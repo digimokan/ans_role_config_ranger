@@ -30,5 +30,8 @@ mime_type_zip: 'application/zip'
 mime_type_xz: 'application/x-xz'
 mime_type_7zip: 'application/x-7z-compressed'
 
+# video
+mime_type_video: 'video/*'
+
 # image
 mime_type_image: 'image/*'

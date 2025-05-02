@@ -35,3 +35,6 @@ preview_zip_file_cmd: 'false'
 preview_xz_file_cmd: 'false'
 preview_7zip_file_cmd: 'false'
 
+# command to run to image-preview a video file
+preview_video_file_cmd: 'false'
+

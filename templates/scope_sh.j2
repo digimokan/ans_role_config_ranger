@@ -104,6 +104,9 @@ preview_file_by_mime_type() {
     {{ mime_type_7zip }} )
       {{ preview_7zip_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
 
+    {{ mime_type_video }} )
+      [ "${PV_IMAGE_ENABLED}" = 'True' ] && {{ preview_video_file_cmd }} -i "${FILE_PATH}" -o "${IMAGE_CACHE_PATH}" -s 0 && exit_and_display_image_cache_path_file;;
+
     {{ mime_type_image }} )
       [ "${PV_IMAGE_ENABLED}" = 'True' ] && exit_and_display_file_as_image;;
   esac
