@@ -55,6 +55,7 @@ determine_file_mime_type() {
 }
 
 preview_file_by_mime_type() {
+  local DEFAULT_SIZE; DEFAULT_SIZE="1920x1080"
   case "${MIMETYPE}" in
     {{ mime_type_text }} )
       {{ preview_text_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
@@ -84,7 +85,7 @@ preview_file_by_mime_type() {
       {{ preview_xlsx_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
 
     {{ mime_type_pdf }} )
-      {{ preview_pdf_file_cmd_prefix }} "${FILE_PATH}" {{ preview_pdf_file_cmd_suffix }} "${PV_WIDTH}" && exit_and_never_reload;;
+      {{ preview_pdf_file_cmd }} -f 1 -l 1 -scale-to-x "${DEFAULT_SIZE%x*}" -scale-to-y -1 -singlefile -jpeg -tiffcompression jpeg -- "${FILE_PATH}" "${IMAGE_CACHE_PATH%.*}" && exit_and_never_reload;;
 
     {{ mime_type_epub }} )
       {{ preview_epub_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
