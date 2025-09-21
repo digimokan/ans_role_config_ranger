@@ -7,6 +7,3 @@ term_arg_set_dir: "--cwd "
 # arg to pass to start_term_emulator to exec a cmd
 term_arg_exec_cmd: "-e '"
 
-# arg to pass to start_term_emulator to end an exec
-term_arg_exec_end: "'"
-
