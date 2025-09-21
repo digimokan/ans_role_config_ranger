@@ -85,7 +85,7 @@ preview_file_by_mime_type() {
       {{ preview_xlsx_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
 
     {{ mime_type_pdf }} )
-      {{ preview_pdf_file_cmd }} -f 1 -l 1 -scale-to-x "${DEFAULT_SIZE}" -scale-to-y -1 -singlefile -jpeg -tiffcompression jpeg -- "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit_and_never_reload;;
+      {{ preview_pdf_file_cmd }} -f 1 -l 1 -scale-to-x "${DEFAULT_SIZE%x*}" -scale-to-y -1 -singlefile -jpeg -tiffcompression jpeg -- "${FILE_PATH}" "${IMAGE_CACHE_PATH%.*}" && exit_and_display_image_cache_path_file || exit_and_do_not_display_preview;;
 
     {{ mime_type_epub }} )
       {{ preview_epub_file_cmd }} "${FILE_PATH}" && exit_and_never_reload;;
